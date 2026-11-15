@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text x="108" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text x="172" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">#2</text>
+
+  <text x="56" y="200" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="92" font-weight="900" fill="#F2F2F2" letter-spacing="-3">NX_LOG</text>
+  <rect x="416" y="134" width="34" height="66" fill="#F04E0F"/>
+  <text x="60" y="250" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">(Category, Verbosity, "fmt", args...)</text>
+
+  <rect x="60" y="300" width="150" height="38" fill="#B3122E"/>
+  <text x="74" y="325" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#F2F2F2" letter-spacing="1">FATAL</text>
+  <rect x="60" y="346" width="186" height="38" fill="#FF4D4D"/>
+  <text x="74" y="371" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#141414" letter-spacing="1">ERROR</text>
+  <rect x="60" y="392" width="222" height="38" fill="#FFC23D"/>
+  <text x="74" y="417" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#141414" letter-spacing="1">WARNING</text>
+  <rect x="60" y="438" width="258" height="38" fill="#F2F2F2"/>
+  <text x="74" y="463" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#141414" letter-spacing="1">DISPLAY</text>
+  <rect x="60" y="484" width="294" height="38" fill="#3A3A3A"/>
+  <text x="74" y="509" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#F2F2F2" letter-spacing="1">LOG</text>
+
+  <path d="M370 304 h10 V472 h-10" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="390" y="393" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A">console</text>
+
+  <path d="M450 304 h10 V518 h-10" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="470" y="416" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A">file</text>
+
+  <rect x="540" y="60" width="610" height="510" fill="#0C0C0C" stroke="#2E2E2E"/>
+  <line x1="540" y1="100" x2="1150" y2="100" stroke="#2E2E2E"/>
+  <circle cx="562" cy="80" r="6" fill="#F04E0F"/>
+  <circle cx="582" cy="80" r="6" fill="#2E2E2E"/>
+  <circle cx="602" cy="80" r="6" fill="#2E2E2E"/>
+  <text x="1130" y="85" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">Build/bin/Debug</text>
+  <text x="564" y="144" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" xml:space="preserve">$ NexoraEngine.exe</text>
+  <text x="564" y="174" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#F2F2F2" xml:space="preserve">[20:06:02.481] LogMain: Display: Nexora 0.1</text>
+  <text x="564" y="204" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#FFC23D" xml:space="preserve">[20:06:02.481] LogMain: Warning: Something looks off: 42</text>
+  <text x="564" y="234" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#FFC23D" xml:space="preserve">               (main.cpp:9)</text>
+  <text x="564" y="264" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#FF4D4D" xml:space="preserve">[20:06:02.482] LogMain: Error: Something failed</text>
+  <text x="564" y="294" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#FF4D4D" xml:space="preserve">               (main.cpp:10)</text>
+  <text x="564" y="354" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" xml:space="preserve">$ NexoraEngineTestRunner.exe</text>
+  <text x="564" y="384" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#4CD97B" xml:space="preserve">[ RUN      ] LogTest.ShouldAcceptOnlyLogCategory</text>
+  <text x="564" y="414" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#4CD97B" xml:space="preserve">[       OK ] LogTest.ShouldAcceptOnlyLogCategory</text>
+  <text x="564" y="444" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#4CD97B" xml:space="preserve">[  PASSED  ] 1 test.</text>
+  <rect x="564" y="459" width="10" height="20" fill="#F04E0F"/>
+</svg>
