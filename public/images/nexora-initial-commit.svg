@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+  <line x1="550.5" y1="24" x2="550.5" y2="606" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text x="108" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+
+  <text font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="80" font-weight="900" fill="#F2F2F2" letter-spacing="-2">
+    <tspan x="56" y="220">INITIAL</tspan>
+    <tspan x="56" y="300">COMMIT</tspan>
+  </text>
+  <rect x="466" y="246" width="32" height="54" fill="#F04E0F"/>
+
+  <text x="60" y="380" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="18" fill="#7A7A7A">$ git show --stat</text>
+  <text x="60" y="414" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="18" fill="#F04E0F">85381a9</text>
+  <text x="150" y="414" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="18" fill="#F2F2F2">Initial project setup</text>
+
+  <text x="60" y="520" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">FILES</text>
+  <text x="60" y="566" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#F2F2F2">18</text>
+  <text x="200" y="520" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">INSERTIONS</text>
+  <text x="200" y="566" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#F04E0F">+303</text>
+  <text x="380" y="520" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">ENGINE CODE</text>
+  <text x="380" y="566" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#F2F2F2">0</text>
+
+  <text x="600" y="72" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">DIFFSTAT</text>
+    <text x="600" y="112" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">.claude/</tspan><tspan fill="#F2F2F2">CLAUDE.md</tspan></text>
+    <text x="1000" y="112" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">44</text>
+    <rect x="1012" y="101" width="83.6" height="12" fill="#F04E0F"/>
+    <text x="600" y="137" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">…/karpathy-guidelines/</tspan><tspan fill="#F2F2F2">SKILL.md</tspan></text>
+    <text x="1000" y="137" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">67</text>
+    <rect x="1012" y="126" width="127.3" height="12" fill="#F04E0F"/>
+    <text x="600" y="162" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A"></tspan><tspan fill="#F2F2F2">.gitignore</tspan></text>
+    <text x="1000" y="162" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">5</text>
+    <rect x="1012" y="151" width="9.5" height="12" fill="#F04E0F"/>
+    <text x="600" y="187" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/CMAKE/</tspan><tspan fill="#F2F2F2">CMakeHelpers.cmake</tspan></text>
+    <text x="1000" y="187" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">29</text>
+    <rect x="1012" y="176" width="55.1" height="12" fill="#F04E0F"/>
+    <text x="600" y="212" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/</tspan><tspan fill="#F2F2F2">build_debug.bat</tspan></text>
+    <text x="1000" y="212" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">8</text>
+    <rect x="1012" y="201" width="15.2" height="12" fill="#F04E0F"/>
+    <text x="600" y="237" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/</tspan><tspan fill="#F2F2F2">build_release.bat</tspan></text>
+    <text x="1000" y="237" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">8</text>
+    <rect x="1012" y="226" width="15.2" height="12" fill="#F04E0F"/>
+    <text x="600" y="262" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/</tspan><tspan fill="#F2F2F2">clean.bat</tspan></text>
+    <text x="1000" y="262" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">5</text>
+    <rect x="1012" y="251" width="9.5" height="12" fill="#F04E0F"/>
+    <text x="600" y="287" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/</tspan><tspan fill="#F2F2F2">format_all_files.bat</tspan></text>
+    <text x="1000" y="287" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">7</text>
+    <rect x="1012" y="276" width="13.3" height="12" fill="#F04E0F"/>
+    <text x="600" y="312" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Automation/</tspan><tspan fill="#F2F2F2">generate_project_files.bat</tspan></text>
+    <text x="1000" y="312" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">11</text>
+    <rect x="1012" y="301" width="20.9" height="12" fill="#F04E0F"/>
+    <text x="600" y="337" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A"></tspan><tspan fill="#F2F2F2">CMakeLists.txt</tspan></text>
+    <text x="1000" y="337" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">20</text>
+    <rect x="1012" y="326" width="38.0" height="12" fill="#F04E0F"/>
+    <text x="600" y="362" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Config/</tspan><tspan fill="#F2F2F2">.clang-format</tspan></text>
+    <text x="1000" y="362" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">19</text>
+    <rect x="1012" y="351" width="36.1" height="12" fill="#F04E0F"/>
+    <text x="600" y="387" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Config/</tspan><tspan fill="#F2F2F2">conanfile.txt</tspan></text>
+    <text x="1000" y="387" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">8</text>
+    <rect x="1012" y="376" width="15.2" height="12" fill="#F04E0F"/>
+    <text x="600" y="412" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Engine/</tspan><tspan fill="#F2F2F2">CMakeLists.txt</tspan></text>
+    <text x="1000" y="412" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">20</text>
+    <rect x="1012" y="401" width="38.0" height="12" fill="#F04E0F"/>
+    <text x="600" y="437" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Engine/Source/</tspan><tspan fill="#F2F2F2">main.cpp</tspan></text>
+    <text x="1000" y="437" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">4</text>
+    <rect x="1012" y="426" width="7.6" height="12" fill="#F04E0F"/>
+    <text x="600" y="462" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Engine/Source/</tspan><tspan fill="#F2F2F2">pch.cpp</tspan></text>
+    <text x="1000" y="462" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">1</text>
+    <rect x="1012" y="451" width="1.9" height="12" fill="#F04E0F"/>
+    <text x="600" y="487" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A">Engine/Source/</tspan><tspan fill="#F2F2F2">pch.h</tspan></text>
+    <text x="1000" y="487" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">8</text>
+    <rect x="1012" y="476" width="15.2" height="12" fill="#F04E0F"/>
+    <text x="600" y="512" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A"></tspan><tspan fill="#F2F2F2">LICENSE</tspan></text>
+    <text x="1000" y="512" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">21</text>
+    <rect x="1012" y="501" width="39.9" height="12" fill="#F04E0F"/>
+    <text x="600" y="537" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15"><tspan fill="#7A7A7A"></tspan><tspan fill="#F2F2F2">README.md</tspan></text>
+    <text x="1000" y="537" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#7A7A7A" text-anchor="end">18</text>
+    <rect x="1012" y="526" width="34.2" height="12" fill="#F04E0F"/>
+</svg>
