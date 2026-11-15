@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text x="108" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text x="172" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">#5</text>
+
+  <text font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="74" font-weight="900" fill="#F2F2F2" letter-spacing="-2">
+    <tspan x="56" y="176">WINDOW</tspan>
+    <tspan x="56" y="250">MANAGER</tspan>
+  </text>
+
+  <text x="60" y="318" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A">unordered_map&lt;WindowId, shared_ptr&lt;IWindow&gt;&gt;</text>
+
+  <rect x="60" y="370" width="44" height="30" fill="none" stroke="#F04E0F" stroke-width="1.5"/>
+  <text x="82" y="391" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" font-weight="700" fill="#F04E0F" text-anchor="middle">1</text>
+  <text x="116" y="392" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">→</text>
+  <text x="150" y="392" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#F2F2F2">GLFWWindow</text>
+  <rect x="60" y="414" width="44" height="30" fill="none" stroke="#F04E0F" stroke-width="1.5"/>
+  <text x="82" y="435" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" font-weight="700" fill="#F04E0F" text-anchor="middle">2</text>
+  <text x="116" y="436" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">→</text>
+  <text x="150" y="436" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#F2F2F2">GLFWWindow</text>
+  <rect x="60" y="458" width="44" height="30" fill="none" stroke="#7A7A7A" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="82" y="479" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" font-weight="700" fill="#7A7A7A" text-anchor="middle">3</text>
+  <text x="116" y="480" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">→</text>
+  <text x="150" y="480" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#7A7A7A">GLFWWindow</text>
+  <line x1="150" y1="475" x2="246" y2="475" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="290" y="480" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#F04E0F" letter-spacing="1">ERASED</text>
+
+  <text x="60" y="560" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#4CD97B">EXPECT_NE(firstId, secondId);  ✓</text>
+
+  <rect x="560" y="60" width="330" height="190" fill="#1A1A1A"/>
+  <rect x="560" y="60" width="330" height="32" fill="#202020"/>
+  <rect x="560" y="60" width="330" height="190" fill="none" stroke="#F2F2F2" stroke-width="1.5"/>
+  <rect x="572" y="71" width="10" height="10" fill="#F04E0F"/>
+  <text x="592" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#F2F2F2">Nexora · id 1</text>
+  <path d="M866 71 l10 10 M876 71 l-10 10" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="866" y="228" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="64" font-weight="900" fill="#262626" text-anchor="end">1</text>
+  <rect x="610" y="110" width="330" height="190" fill="#1A1A1A"/>
+  <rect x="610" y="110" width="330" height="32" fill="#202020"/>
+  <rect x="610" y="110" width="330" height="190" fill="none" stroke="#F2F2F2" stroke-width="1.5"/>
+  <rect x="622" y="121" width="10" height="10" fill="#F04E0F"/>
+  <text x="642" y="131" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#F2F2F2">Nexora · id 2</text>
+  <path d="M916 121 l10 10 M926 121 l-10 10" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="916" y="278" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="64" font-weight="900" fill="#262626" text-anchor="end">2</text>
+  <rect x="660" y="160" width="330" height="190" fill="#1A1A1A"/>
+  <rect x="660" y="160" width="330" height="32" fill="#202020"/>
+  <rect x="660" y="160" width="330" height="190" fill="none" stroke="#7A7A7A" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <rect x="672" y="171" width="10" height="10" fill="#7A7A7A"/>
+  <text x="692" y="181" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A">Nexora · id 3</text>
+  <path d="M966 171 l10 10 M976 171 l-10 10" stroke="#F04E0F" stroke-width="1.5"/>
+  <g transform="translate(825 271)">
+    <circle r="26" fill="#141414" stroke="#F04E0F" stroke-width="2"/>
+    <path d="M-10 -10 L10 10 M10 -10 L-10 10" stroke="#F04E0F" stroke-width="3"/>
+  </g>
+  <text x="1010" y="246" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#F04E0F">shouldClose()</text>
+  <text x="1010" y="268" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A">→ erase_if</text>
+
+  <text x="560" y="432" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="1">UPDATE()</text>
+  <path d="M560 440 H1010" stroke="#2E2E2E" stroke-width="1.5"/>
+
+  <rect x="560" y="452" width="190" height="44" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1.5"/>
+  <text x="655" y="479" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#F2F2F2" text-anchor="middle">glfwPollEvents()</text>
+  <path d="M750 474 H790 M783 468 L790 474 L783 480" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <rect x="790" y="452" width="220" height="44" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1.5"/>
+  <text x="900" y="479" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#F2F2F2" text-anchor="middle">removeClosedWindows()</text>
+  <path d="M1010 474 H1050 M1043 468 L1050 474 L1043 480" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <rect x="1050" y="452" width="90" height="44" fill="#1A1A1A" stroke="#F04E0F" stroke-width="1.5"/>
+  <text x="1095" y="479" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#F04E0F" text-anchor="middle">empty?</text>
+  <path d="M900 496 V526 H655 V502 M649 509 L655 502 L661 509" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <text x="920" y="531" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A">while (!areAllWindowsClosed())</text>
+</svg>
