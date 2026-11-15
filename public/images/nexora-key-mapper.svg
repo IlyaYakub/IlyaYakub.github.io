@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text x="108" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text x="172" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">#7</text>
+
+  <text font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="76" font-weight="900" fill="#F2F2F2" letter-spacing="-2">
+    <tspan x="56" y="176">KEY</tspan>
+    <tspan x="56" y="250">MAPPER</tspan>
+  </text>
+  <rect x="198" y="120" width="30" height="56" fill="#F04E0F"/>
+
+  <rect x="60" y="326" width="400" height="58" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1.5"/>
+  <text x="78" y="350" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#F2F2F2">C callback</text>
+  <text x="78" y="371" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A">GLFWwindow* window</text>
+  <path d="M80 384 V404 M74 398 L80 404 L86 398" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <rect x="60" y="408" width="400" height="58" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1.5"/>
+  <text x="78" y="432" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#F2F2F2">glfwGetWindowUserPointer</text>
+  <text x="78" y="453" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A">→ GLFWWindow* self</text>
+  <path d="M80 466 V486 M74 480 L80 486 L86 480" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+  <rect x="60" y="490" width="400" height="58" fill="#1A1A1A" stroke="#F04E0F" stroke-width="1.5"/>
+  <text x="78" y="514" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" font-weight="700" fill="#F2F2F2">self->m_windowEvent</text>
+  <text x="78" y="535" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A">.invoke(InputEvent{...})</text>
+
+  <rect x="540" y="60" width="610" height="510" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text x="566" y="104" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">GLFW · INT</text>
+  <text x="926" y="104" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">NEXORA · ENUM CLASS</text>
+  <text x="848" y="104" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#F04E0F" text-anchor="middle" letter-spacing="2">SWITCH</text>
+  <line x1="560" y1="120" x2="1130" y2="120" stroke="#2E2E2E"/>
+
+  <text x="566" y="167" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#F2F2F2">GLFW_KEY_W</text>
+  <text x="772" y="167" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">87</text>
+  <circle cx="792" cy="162" r="9" fill="#141414" stroke="#F04E0F" stroke-width="2"/>
+  <circle cx="792" cy="162" r="3" fill="#F04E0F"/>
+  <text x="566" y="227" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_KEY_ESCAPE</text>
+  <text x="772" y="227" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">256</text>
+  <circle cx="792" cy="222" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="222" r="3" fill="#7A7A7A"/>
+  <text x="566" y="287" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_KEY_SPACE</text>
+  <text x="772" y="287" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">32</text>
+  <circle cx="792" cy="282" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="282" r="3" fill="#7A7A7A"/>
+  <text x="566" y="347" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_MOUSE_BUTTON_RIGHT</text>
+  <text x="772" y="347" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">1</text>
+  <circle cx="792" cy="342" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="342" r="3" fill="#7A7A7A"/>
+  <text x="566" y="407" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_PRESS</text>
+  <text x="772" y="407" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">1</text>
+  <circle cx="792" cy="402" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="402" r="3" fill="#7A7A7A"/>
+  <text x="566" y="467" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_RELEASE</text>
+  <text x="772" y="467" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">0</text>
+  <circle cx="792" cy="462" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="462" r="3" fill="#7A7A7A"/>
+  <text x="566" y="527" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#B0B0B0">GLFW_KEY_WORLD_1</text>
+  <text x="772" y="527" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="13" fill="#7A7A7A" text-anchor="end">161</text>
+  <circle cx="792" cy="522" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="792" cy="522" r="3" fill="#7A7A7A"/>
+  <path d="M792 162 C 852 180, 844 240, 904 222" fill="none" stroke="#F04E0F" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M792 222 C 852 240, 844 540, 904 522" fill="none" stroke="#F2F2F2" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M792 282 C 852 300, 844 420, 904 402" fill="none" stroke="#F2F2F2" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M792 342 C 852 360, 844 300, 904 282" fill="none" stroke="#B0B0B0" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M792 402 C 852 420, 844 180, 904 162" fill="none" stroke="#B0B0B0" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M792 462 C 852 480, 844 480, 904 462" fill="none" stroke="#B0B0B0" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M792 522 C 852 540, 844 360, 904 342" fill="none" stroke="#7A7A7A" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+  <circle cx="904" cy="162" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="162" r="3" fill="#7A7A7A"/>
+  <text x="926" y="167" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#F2F2F2">InputAction::Press</text>
+  <circle cx="904" cy="222" r="9" fill="#141414" stroke="#F04E0F" stroke-width="2"/>
+  <circle cx="904" cy="222" r="3" fill="#F04E0F"/>
+  <text x="926" y="227" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F">Key::W</text>
+  <circle cx="904" cy="282" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="282" r="3" fill="#7A7A7A"/>
+  <text x="926" y="287" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#F2F2F2">MouseButton::Right</text>
+  <circle cx="904" cy="342" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="342" r="3" fill="#7A7A7A"/>
+  <text x="926" y="347" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#7A7A7A">Key::Unknown</text>
+  <circle cx="904" cy="402" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="402" r="3" fill="#7A7A7A"/>
+  <text x="926" y="407" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#F2F2F2">Key::Space</text>
+  <circle cx="904" cy="462" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="462" r="3" fill="#7A7A7A"/>
+  <text x="926" y="467" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#F2F2F2">InputAction::Release</text>
+  <circle cx="904" cy="522" r="9" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="904" cy="522" r="3" fill="#7A7A7A"/>
+  <text x="926" y="527" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="400" fill="#F2F2F2">Key::Escape</text>
+</svg>
