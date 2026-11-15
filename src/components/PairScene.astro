@@ -1,0 +1,416 @@
+---
+// A human and an agent think over one screen. Pure SVG + CSS, 8s loop:
+// human asks (?), agent thinks (...), code types in, both get it (!) and the screen shows a check.
+---
+
+<figure class="scene" aria-label="A person and an AI agent looking at one screen and thinking together">
+  <svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" role="img">
+    <line x1="10" y1="206" x2="290" y2="206" class="desk" />
+
+    <!-- monitor -->
+    <rect x="92" y="54" width="116" height="82" class="monitor" />
+    <rect x="98" y="60" width="104" height="70" class="screen" />
+    <rect x="140" y="136" width="20" height="30" class="stand" />
+    <rect x="120" y="166" width="60" height="6" class="stand" />
+    <rect x="106" y="70" width="44" height="5" class="code c1" />
+    <rect x="114" y="82" width="62" height="5" class="code c2" />
+    <rect x="114" y="94" width="38" height="5" class="code c3 hl" />
+    <rect x="106" y="106" width="52" height="5" class="code c4" />
+    <rect x="106" y="116" width="5" height="8" class="cursor" />
+    <path d="M170 104 l7 7 l13 -15" class="check" />
+
+    <!-- human -->
+    <g class="human">
+      <path d="M22 206 V176 q0 -26 26 -26 q26 0 26 26 V206" class="body" />
+      <circle cx="48" cy="128" r="17" class="head" />
+      <path d="M33 122 q4 -16 18 -16 q12 1 14 12" class="hair" />
+      <circle cx="54" cy="128" r="2" class="eye" />
+      <circle cx="62" cy="128" r="2" class="eye" />
+      <path d="M56 138 q4 2 7 0" class="mouth" />
+      <path d="M70 176 q14 -6 22 -22" class="arm" />
+    </g>
+    <g class="bubble b-ask">
+      <circle cx="40" cy="80" r="16" />
+      <circle cx="46" cy="102" r="3" />
+      <text x="40" y="86">?</text>
+    </g>
+    <g class="bubble b-human-aha">
+      <circle cx="40" cy="80" r="16" />
+      <circle cx="46" cy="102" r="3" />
+      <text x="40" y="86">!</text>
+    </g>
+
+    <!-- agent -->
+    <g class="agent">
+      <rect x="230" y="168" width="48" height="38" rx="6" class="body" />
+      <line x1="254" y1="98" x2="254" y2="110" class="antenna" />
+      <circle cx="254" cy="96" r="4" class="led" />
+      <rect x="234" y="110" width="40" height="34" rx="6" class="head" />
+      <path d="M241 122 l5 4 l-5 4" class="face" />
+      <line x1="250" y1="131" x2="259" y2="131" class="face blink" />
+      <rect x="246" y="144" width="16" height="24" class="neck" />
+      <path d="M230 182 q-14 -4 -22 -26" class="arm" />
+    </g>
+    <g class="bubble b-think">
+      <rect x="226" y="46" width="56" height="28" rx="14" />
+      <circle cx="248" cy="82" r="3" />
+      <circle cx="242" cy="60" r="3.5" class="dot d1" />
+      <circle cx="254" cy="60" r="3.5" class="dot d2" />
+      <circle cx="266" cy="60" r="3.5" class="dot d3" />
+    </g>
+    <g class="bubble b-agent-aha">
+      <rect x="226" y="46" width="56" height="28" rx="14" />
+      <circle cx="248" cy="82" r="3" />
+      <text x="254" y="66">!</text>
+    </g>
+  </svg>
+  <figcaption class="mono muted">human + agent · one screen</figcaption>
+</figure>
+
+<style>
+  .scene {
+    margin: 0;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  figcaption {
+    margin-top: 8px;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .desk {
+    stroke: var(--border);
+    stroke-width: 2;
+  }
+
+  .monitor {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .screen {
+    fill: #0c0c0c;
+  }
+
+  .stand {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .code {
+    fill: var(--muted);
+    transform-box: fill-box;
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  .code.hl {
+    fill: var(--accent);
+  }
+
+  .c1 {
+    animation: type1 8s infinite;
+  }
+
+  .c2 {
+    animation: type2 8s infinite;
+  }
+
+  .c3 {
+    animation: type3 8s infinite;
+  }
+
+  .c4 {
+    animation: type4 8s infinite;
+  }
+
+  .cursor {
+    fill: var(--accent);
+    animation: blink 1s steps(1) infinite;
+  }
+
+  .check {
+    fill: none;
+    stroke: #4cd97b;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    animation: aha 8s infinite;
+  }
+
+  .human .body,
+  .agent .body {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .human .head {
+    fill: var(--bg);
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .hair {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  .eye {
+    fill: var(--text);
+  }
+
+  .mouth,
+  .arm {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .human {
+    animation: bob 4s ease-in-out infinite;
+  }
+
+  .agent {
+    animation: bob 3s ease-in-out infinite 0.5s;
+  }
+
+  .agent .head {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 2.5;
+  }
+
+  .agent .neck {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .antenna {
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+
+  .led {
+    fill: var(--accent);
+    animation: blink 1.4s steps(1) infinite;
+  }
+
+  .face {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .face.blink {
+    animation: blink 1s steps(1) infinite;
+  }
+
+  .bubble {
+    opacity: 0;
+  }
+
+  .bubble circle,
+  .bubble rect {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 1.5;
+  }
+
+  .bubble text {
+    fill: var(--accent);
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+
+  .bubble .dot {
+    fill: var(--accent);
+    stroke: none;
+    animation: pulse 1.2s infinite;
+  }
+
+  .d2 {
+    animation-delay: 0.2s !important;
+  }
+
+  .d3 {
+    animation-delay: 0.4s !important;
+  }
+
+  .b-ask {
+    animation: ask 8s infinite;
+  }
+
+  .b-think {
+    animation: think 8s infinite;
+  }
+
+  .b-human-aha,
+  .b-agent-aha {
+    animation: aha 8s infinite;
+  }
+
+  @keyframes ask {
+    0%,
+    4% {
+      opacity: 0;
+    }
+    8%,
+    28% {
+      opacity: 1;
+    }
+    32%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes think {
+    0%,
+    26% {
+      opacity: 0;
+    }
+    30%,
+    66% {
+      opacity: 1;
+    }
+    70%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes aha {
+    0%,
+    72% {
+      opacity: 0;
+    }
+    76%,
+    94% {
+      opacity: 1;
+    }
+    98%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes type1 {
+    0%,
+    36% {
+      transform: scaleX(0);
+    }
+    44%,
+    96% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes type2 {
+    0%,
+    44% {
+      transform: scaleX(0);
+    }
+    52%,
+    96% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes type3 {
+    0%,
+    52% {
+      transform: scaleX(0);
+    }
+    60%,
+    96% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes type4 {
+    0%,
+    60% {
+      transform: scaleX(0);
+    }
+    68%,
+    96% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.25;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene * {
+      animation: none !important;
+    }
+
+    .code {
+      transform: scaleX(1);
+    }
+
+    .check,
+    .b-human-aha,
+    .b-agent-aha {
+      opacity: 1;
+    }
+  }
+</style>

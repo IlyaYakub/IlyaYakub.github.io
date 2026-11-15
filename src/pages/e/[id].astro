@@ -1,19 +1,26 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PairScene from '../../components/PairScene.astro';
+import TopicSeries from '../../components/TopicSeries.astro';
 import { getEntries, entryTitle, formatDate, type Entry } from '../../lib/entries';
 
 export async function getStaticPaths() {
   const entries = await getEntries();
-  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+  return entries.map((entry) => {
+    // oldest first, so the series reads #1, #2, ...
+    const series = entry.data.topic ? entries.filter((e) => e.data.topic === entry.data.topic).reverse() : [];
+    return { params: { id: entry.id }, props: { entry, series } };
+  });
 }
 
-const { entry } = Astro.props as { entry: Entry };
+const { entry, series } = Astro.props as { entry: Entry; series: Entry[] };
 const { type, date, tags, url, repo, title, description, cover, topic } = entry.data;
 const { Content } = await render(entry);
 ---
 
 <Base title={entryTitle(entry)} description={description}>
+  <div class="layout">
   <article class="entry">
     <div class="meta mono">
       <a href={`/feed/${type}`} class="badge">{type}</a>
@@ -60,11 +67,45 @@ const { Content } = await render(entry);
 
     <a href="/feed" class="arrow-link back">← Back to feed</a>
   </article>
+
+  <aside class="aside">
+    <PairScene />
+    {topic && series.length > 0 && <TopicSeries topic={topic} entries={series} currentId={entry.id} />}
+  </aside>
+  </div>
 </Base>
 
 <style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
   .entry {
+    min-width: 0;
     max-width: 760px;
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 420px;
+  }
+
+  @media (min-width: 1100px) {
+    .layout {
+      grid-template-columns: minmax(0, 760px) 300px;
+      justify-content: space-between;
+    }
+
+    .aside {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      padding-top: 52px;
+    }
   }
 
   .meta {
