@@ -2,7 +2,7 @@
 title: "Nexora #1: the initial commit"
 type: note
 topic: nexora
-date: 2026-11-15
+date: 2026-11-15T10:00:00
 tags: [cpp, cmake, conan, setup]
 cover: /images/nexora-initial-commit.svg
 description: "Environment, a short intro to CMake and Conan, and what the first commit sets up."

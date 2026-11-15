@@ -2,7 +2,7 @@
 title: "Nexora #2: Log and tests"
 type: note
 topic: nexora
-date: 2026-11-15
+date: 2026-11-15T11:00:00
 tags: [cpp, spdlog, googletest]
 cover: /images/nexora-log.svg
 description: "An Unreal-style log on top of spdlog, and the first GoogleTest test."
