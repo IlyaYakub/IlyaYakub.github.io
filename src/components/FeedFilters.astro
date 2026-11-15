@@ -1,0 +1,59 @@
+---
+import { TYPES } from '../consts';
+
+interface Props {
+  topics: string[];
+  type?: string;
+  topic?: string;
+}
+
+const { topics, type, topic } = Astro.props;
+const isAll = !type && !topic;
+---
+
+<nav class="filters">
+  <div class="row">
+    <span class="label mono muted">Type</span>
+    <a href="/feed" class:list={['badge', { active: isAll }]}>all</a>
+    {
+      TYPES.map((t) => (
+        <a href={`/feed/${t}`} class:list={['badge', { active: t === type }]}>
+          {t}
+        </a>
+      ))
+    }
+  </div>
+  {
+    topics.length > 0 && (
+      <div class="row">
+        <span class="label mono muted">Topic</span>
+        <a href="/feed" class:list={['badge', { active: isAll }]}>all</a>
+        {topics.map((t) => (
+          <a href={`/topic/${t}`} class:list={['badge', { active: t === topic }]}>
+            {t}
+          </a>
+        ))}
+      </div>
+    )
+  }
+</nav>
+
+<style>
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .label {
+    width: 56px;
+  }
+</style>

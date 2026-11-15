@@ -14,7 +14,9 @@ date: 2026-11-15
 tags: [astro]
 url: https://...        # required for link
 repo: https://github.com/...  # optional, for project
-description: "Shown on the card and in RSS"
+description: "Shown on the card (if no cover) and in RSS"
+cover: /images/my-note.svg    # optional, file in public/images/, replaces the description on the card
+topic: nexora           # optional, filter at /topic/<topic>
 draft: false            # true = visible only in `npm run dev`
 ---
 ```

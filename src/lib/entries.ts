@@ -7,6 +7,10 @@ export async function getEntries(): Promise<Entry[]> {
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
+export function getTopics(entries: Entry[]): string[] {
+  return [...new Set(entries.flatMap((e) => (e.data.topic ? [e.data.topic] : [])))].sort();
+}
+
 /** Posts may have no title: fall back to the start of the text. */
 export function entryTitle(e: Entry): string {
   if (e.data.title) return e.data.title;

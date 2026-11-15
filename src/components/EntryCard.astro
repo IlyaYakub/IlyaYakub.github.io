@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { type, date, url, repo, description, tags } = entry.data;
+const { type, date, url, repo, description, tags, cover, topic } = entry.data;
 const href = entryHref(entry);
 // Short posts are shown in full, like a microblog.
 const { Content } = type === 'post' ? await render(entry) : { Content: null };
@@ -16,9 +16,20 @@ const host = url ? new URL(url).hostname.replace(/^www\./, '') : null;
 
 <article class:list={['card', `card-${type}`]}>
   <div class="meta mono">
-    <a href={`/feed/${type}`} class="badge">{type}</a>
+    <div class="labels">
+      <a href={`/feed/${type}`} class="badge">{type}</a>
+      {topic && <a href={`/topic/${topic}`} class="topic">{topic}</a>}
+    </div>
     <a href={href} class="muted date">{formatDate(date)}</a>
   </div>
+
+  {
+    cover && (
+      <a href={href} class="cover">
+        <img src={cover} alt="" loading="lazy" />
+      </a>
+    )
+  }
 
   {
     Content ? (
@@ -36,7 +47,7 @@ const host = url ? new URL(url).hostname.replace(/^www\./, '') : null;
     )
   }
 
-  {description && type !== 'post' && <p class="desc muted">{description}</p>}
+  {description && !cover && type !== 'post' && <p class="desc muted">{description}</p>}
 
   {
     (host || repo || tags.length > 0) && (
@@ -74,6 +85,33 @@ const host = url ? new URL(url).hostname.replace(/^www\./, '') : null;
 
   .date {
     text-decoration: none;
+  }
+
+  .labels {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topic {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .topic:hover {
+    color: var(--accent);
+  }
+
+  .cover {
+    display: block;
+    border: 1px solid var(--border);
+  }
+
+  .cover img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .title {

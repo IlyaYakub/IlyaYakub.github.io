@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props as { entry: Entry };
-const { type, date, tags, url, repo, title, description } = entry.data;
+const { type, date, tags, url, repo, title, description, cover, topic } = entry.data;
 const { Content } = await render(entry);
 ---
 
@@ -17,10 +17,13 @@ const { Content } = await render(entry);
   <article class="entry">
     <div class="meta mono">
       <a href={`/feed/${type}`} class="badge">{type}</a>
+      {topic && <a href={`/topic/${topic}`} class="topic">{topic}</a>}
       <span class="muted">{formatDate(date)}</span>
     </div>
 
     {title && <h1 class="title">{title}</h1>}
+
+    {cover && <img src={cover} alt="" class="cover" />}
 
     {
       (url || repo) && (
@@ -77,6 +80,23 @@ const { Content } = await render(entry);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.03em;
+  }
+
+  .topic {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .topic:hover {
+    color: var(--accent);
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
   }
 
   .links {
