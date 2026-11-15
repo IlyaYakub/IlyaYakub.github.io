@@ -1,0 +1,30 @@
+---
+import EntryCard from './EntryCard.astro';
+import type { Entry } from '../lib/entries';
+
+interface Props {
+  entries: Entry[];
+}
+
+const { entries } = Astro.props;
+---
+
+{
+  entries.length === 0 ? (
+    <p class="muted mono">Nothing here yet.</p>
+  ) : (
+    <div class="grid">
+      {entries.map((entry) => (
+        <EntryCard entry={entry} />
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 16px;
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../consts';
+---
+
+<Base title="About">
+  <h1 class="section-title">About</h1>
+  <div class="prose">
+    <!-- TODO: write about yourself -->
+    <p>{SITE.description}</p>
+    <p>
+      {SITE.socials.map((s, i) => <>{i > 0 && ' · '}<a href={s.href}>{s.label}</a></>)}
+    </p>
+  </div>
+</Base>

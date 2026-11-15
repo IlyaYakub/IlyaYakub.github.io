@@ -1,0 +1,120 @@
+---
+import { render } from 'astro:content';
+import { entryHref, entryTitle, formatDate, type Entry } from '../lib/entries';
+
+interface Props {
+  entry: Entry;
+}
+
+const { entry } = Astro.props;
+const { type, date, url, repo, description, tags } = entry.data;
+const href = entryHref(entry);
+// Short posts are shown in full, like a microblog.
+const { Content } = type === 'post' ? await render(entry) : { Content: null };
+const host = url ? new URL(url).hostname.replace(/^www\./, '') : null;
+---
+
+<article class:list={['card', `card-${type}`]}>
+  <div class="meta mono">
+    <a href={`/feed/${type}`} class="badge">{type}</a>
+    <a href={href} class="muted date">{formatDate(date)}</a>
+  </div>
+
+  {
+    Content ? (
+      <div class="prose post-body">
+        <Content />
+      </div>
+    ) : type === 'link' ? (
+      <h3 class="title">
+        <a href={url} rel="noopener">{entryTitle(entry)} ↗</a>
+      </h3>
+    ) : (
+      <h3 class="title">
+        <a href={href}>{entryTitle(entry)}</a>
+      </h3>
+    )
+  }
+
+  {description && type !== 'post' && <p class="desc muted">{description}</p>}
+
+  {
+    (host || repo || tags.length > 0) && (
+      <div class="foot mono muted">
+        {host && <span>{host}</span>}
+        {repo && <a href={repo}>repo ↗</a>}
+        {type === 'link' && <a href={href}>notes →</a>}
+        {tags.map((t) => <a href={`/tags/${t}`}>#{t}</a>)}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .date {
+    text-decoration: none;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .title a {
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--accent);
+  }
+
+  .desc {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .post-body {
+    font-size: 16px;
+  }
+
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-top: auto;
+    font-size: 12px;
+    text-transform: none;
+  }
+
+  .foot a {
+    text-decoration: none;
+  }
+
+  .foot a:hover {
+    color: var(--accent);
+  }
+</style>

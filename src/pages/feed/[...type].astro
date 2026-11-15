@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import EntryGrid from '../../components/EntryGrid.astro';
+import { getEntries } from '../../lib/entries';
+import { TYPES, type EntryType } from '../../consts';
+
+// /feed shows everything, /feed/<type> shows one type.
+export function getStaticPaths() {
+  return [undefined, ...TYPES].map((type) => ({ params: { type } }));
+}
+
+const type = Astro.params.type as EntryType | undefined;
+const all = await getEntries();
+const entries = type ? all.filter((e) => e.data.type === type) : all;
+---
+
+<Base title={type ? `${type}s` : 'Feed'}>
+  <h1 class="section-title">{type ? `${type}s` : 'Feed'}</h1>
+  <nav class="filters">
+    <a href="/feed" class:list={['badge', { active: !type }]}>all</a>
+    {
+      TYPES.map((t) => (
+        <a href={`/feed/${t}`} class:list={['badge', { active: t === type }]}>
+          {t}
+        </a>
+      ))
+    }
+  </nav>
+  <EntryGrid entries={entries} />
+</Base>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+</style>

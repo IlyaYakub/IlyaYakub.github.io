@@ -1,0 +1,123 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getEntries, entryTitle, formatDate, type Entry } from '../../lib/entries';
+
+export async function getStaticPaths() {
+  const entries = await getEntries();
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: Entry };
+const { type, date, tags, url, repo, title, description } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Base title={entryTitle(entry)} description={description}>
+  <article class="entry">
+    <div class="meta mono">
+      <a href={`/feed/${type}`} class="badge">{type}</a>
+      <span class="muted">{formatDate(date)}</span>
+    </div>
+
+    {title && <h1 class="title">{title}</h1>}
+
+    {
+      (url || repo) && (
+        <div class="links mono">
+          {url && (
+            <a href={url} rel="noopener">
+              {url} ↗
+            </a>
+          )}
+          {repo && (
+            <a href={repo} rel="noopener">
+              repo ↗
+            </a>
+          )}
+        </div>
+      )
+    }
+
+    <div class:list={['prose', { 'post-body': !title }]}>
+      <Content />
+    </div>
+
+    {
+      tags.length > 0 && (
+        <div class="tags">
+          {tags.map((t) => (
+            <a href={`/tags/${t}`} class="mono tag">
+              #{t}
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    <a href="/feed" class="arrow-link back">← Back to feed</a>
+  </article>
+</Base>
+
+<style>
+  .entry {
+    max-width: 760px;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    margin: 0 0 24px;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+    text-transform: none;
+    word-break: break-all;
+  }
+
+  .links a {
+    color: var(--accent);
+  }
+
+  .post-body {
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tag {
+    text-transform: none;
+    text-decoration: none;
+    color: var(--muted);
+  }
+
+  .tag:hover {
+    color: var(--accent);
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 40px;
+  }
+</style>
