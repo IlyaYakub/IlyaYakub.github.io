@@ -7,11 +7,6 @@ export async function getEntries(): Promise<Entry[]> {
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-/** A project opens its topic, like a playlist cover, and stays first. */
-export function projectsFirst(entries: Entry[]): Entry[] {
-  return [...entries.filter((e) => e.data.type === 'project'), ...entries.filter((e) => e.data.type !== 'project')];
-}
-
 export function getTopics(entries: Entry[]): string[] {
   return [...new Set(entries.flatMap((e) => (e.data.topic ? [e.data.topic] : [])))].sort();
 }

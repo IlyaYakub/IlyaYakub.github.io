@@ -2,14 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import EntryGrid from '../../components/EntryGrid.astro';
 import FeedFilters from '../../components/FeedFilters.astro';
-import { getEntries, getTopics, projectsFirst, type Entry } from '../../lib/entries';
+import { getEntries, getTopics, type Entry } from '../../lib/entries';
 
 export async function getStaticPaths() {
   const all = await getEntries();
   const topics = getTopics(all);
   return topics.map((topic) => ({
     params: { topic },
-    props: { topics, entries: projectsFirst(all.filter((e) => e.data.topic === topic)) },
+    props: { topics, entries: all.filter((e) => e.data.topic === topic) },
   }));
 }
 

@@ -2,7 +2,7 @@
 title: "Nexora"
 type: project
 topic: nexora
-date: 2026-11-16T11:00:00
+date: 2026-11-15T09:00:00
 tags: [cpp, vulkan, directx, opengl, engine]
 repo: https://github.com/IlyaYakub/Nexora
 cover: /images/nexora-project.svg
