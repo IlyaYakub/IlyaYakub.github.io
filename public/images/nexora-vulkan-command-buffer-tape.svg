@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}.h{font-family:'Inter Tight','Segoe UI',Arial,sans-serif;font-weight:900}</style>
+  <defs>
+    <clipPath id="tapewin"><rect x="846" y="206" width="88" height="38"/></clipPath>
+    <g id="reel">
+      <circle r="44" fill="#2E2E2E"/>
+      <circle r="26" fill="#EDE6D6"/>
+      <circle r="9" fill="#141414"/>
+      <path d="M0 -22 V-11 M19 11 L9.5 5.5 M-19 11 L-9.5 5.5" stroke="#141414" stroke-width="5"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text class="m" x="108" y="81" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text class="m" x="172" y="81" font-size="14" fill="#7A7A7A" letter-spacing="2">#17</text>
+
+  <text class="h" x="56" y="172" font-size="72" fill="#F2F2F2" letter-spacing="-3">COMMAND</text>
+  <text class="h" x="56" y="240" font-size="72" fill="#F2F2F2" letter-spacing="-3">BUFFER</text>
+  <text class="m" x="60" y="276" font-size="18" fill="#F04E0F">record, stop, play, record over</text>
+
+  <rect x="60" y="300" width="500" height="166" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text class="m" x="76" y="326" font-size="12" fill="#7A7A7A" letter-spacing="2">VULKANCOMMANDBUFFER::BEGIN</text>
+  <text class="m" font-size="15" fill="#F2F2F2" xml:space="preserve">
+    <tspan x="76" y="358">.flags = <tspan fill="#B0B0B0">ONE_TIME_SUBMIT_BIT</tspan></tspan>
+    <tspan x="76" y="382">vk<tspan fill="#F04E0F">Reset</tspan>CommandBuffer(m_commandBuffer, 0);</tspan>
+    <tspan x="76" y="406">vk<tspan fill="#F04E0F">Begin</tspan>CommandBuffer(m_commandBuffer, &amp;info);</tspan>
+    <tspan x="76" y="430"><tspan fill="#7A7A7A">// end(): </tspan>vk<tspan fill="#F04E0F">End</tspan>CommandBuffer(...);</tspan>
+  </text>
+  <text class="m" x="76" y="454" font-size="12" fill="#7A7A7A">// last frame's tape is wiped before recording</text>
+
+  <text class="m" x="60" y="508" font-size="14" fill="#7A7A7A">~VulkanCommandBuffer()</text>
+  <text class="m" x="60" y="532" font-size="14" fill="#F2F2F2">vkFreeCommandBuffers(device, pool, 1, &amp;m_commandBuffer);</text>
+  <text class="m" x="60" y="556" font-size="14" fill="#7A7A7A">// freed back to the pool it came from</text>
+
+  <g class="m">
+    <rect x="640" y="76" width="500" height="390" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="3"/>
+    <circle cx="664" cy="100" r="5" fill="#2E2E2E"/><circle cx="1116" cy="100" r="5" fill="#2E2E2E"/>
+    <circle cx="664" cy="442" r="5" fill="#2E2E2E"/><circle cx="1116" cy="442" r="5" fill="#2E2E2E"/>
+
+    <rect x="696" y="108" width="388" height="200" fill="#0C0C0C" stroke="#7A7A7A" stroke-width="2"/>
+    <rect x="716" y="120" width="348" height="40" fill="#F04E0F"/>
+    <text x="732" y="139" font-size="12" font-weight="700" fill="#141414">VkCommandBuffer</text>
+    <text x="732" y="153" font-size="10" fill="#141414">frame 0 · PRIMARY</text>
+    <text x="1048" y="148" font-size="16" font-weight="700" fill="#141414" text-anchor="end">A</text>
+
+    <g transform="translate(800 225)">
+      <g><animateTransform attributeName="transform" type="rotate" values="0;360" dur="2s" repeatCount="indefinite"/><use href="#reel"/></g>
+    </g>
+    <g transform="translate(980 225)">
+      <g><animateTransform attributeName="transform" type="rotate" values="0;360" dur="2s" repeatCount="indefinite"/><use href="#reel"/></g>
+    </g>
+
+    <rect x="846" y="206" width="88" height="38" fill="#2E1A10" stroke="#7A7A7A" stroke-width="1.5"/>
+    <g clip-path="url(#tapewin)">
+      <text y="230" font-size="10" fill="#FFC23D">
+        <animate attributeName="x" values="846;600" dur="4s" repeatCount="indefinite"/>
+        transition · begin · draw · end · transition · begin · draw · end
+      </text>
+    </g>
+
+    <path d="M760 268 L770 292 H1010 L1020 268" fill="none" stroke="#2E1A10" stroke-width="4"/>
+    <rect x="870" y="288" width="40" height="14" fill="#B0B0B0"/>
+    <text x="890" y="320" font-size="9" fill="#7A7A7A" text-anchor="middle">vkCmd* calls</text>
+
+    <rect x="680" y="332" width="230" height="40" fill="#0C0C0C" stroke="#2E2E2E" stroke-width="2"/>
+    <g font-size="13" font-weight="700">
+      <text x="696" y="357" fill="#B0B0B0">WAITING FENCE<animate attributeName="opacity" values="1;0" keyTimes="0;0.15" calcMode="discrete" dur="6s" repeatCount="indefinite"/></text>
+      <text x="696" y="357" fill="#FF4D4D" opacity="0">RECORDING<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.15;0.6" calcMode="discrete" dur="6s" repeatCount="indefinite"/></text>
+      <text x="696" y="357" fill="#F2F2F2" opacity="0">EXECUTABLE<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.6;0.7" calcMode="discrete" dur="6s" repeatCount="indefinite"/></text>
+      <text x="696" y="357" fill="#F04E0F" opacity="0">PENDING · GPU<animate attributeName="opacity" values="0;1" keyTimes="0;0.7" calcMode="discrete" dur="6s" repeatCount="indefinite"/></text>
+    </g>
+
+    <circle cx="1040" cy="352" r="10" fill="#FF4D4D" opacity="0.15">
+      <animate attributeName="opacity" values="0.15;1;0.4;1;0.4;1;0.15" keyTimes="0;0.15;0.26;0.37;0.48;0.59;0.6" calcMode="discrete" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1058" y="357" font-size="12" font-weight="700" fill="#FF4D4D">REC</text>
+
+    <g font-size="12" font-weight="700" text-anchor="middle">
+      <rect x="664" y="388" width="104" height="44" fill="#2E2E2E" stroke="#7A7A7A" stroke-width="2">
+        <animate attributeName="fill" values="#7A7A7A;#2E2E2E" keyTimes="0;0.15" calcMode="discrete" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="716" y="415" fill="#F2F2F2">❚❚ WAIT</text>
+      <rect x="780" y="388" width="104" height="44" fill="#2E2E2E" stroke="#7A7A7A" stroke-width="2">
+        <animate attributeName="fill" values="#2E2E2E;#FF4D4D;#2E2E2E" keyTimes="0;0.15;0.6" calcMode="discrete" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="832" y="415" fill="#F2F2F2">● REC</text>
+      <rect x="896" y="388" width="104" height="44" fill="#2E2E2E" stroke="#7A7A7A" stroke-width="2">
+        <animate attributeName="fill" values="#2E2E2E;#F2F2F2;#2E2E2E" keyTimes="0;0.6;0.7" calcMode="discrete" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="948" y="415" fill="#B0B0B0">■ STOP</text>
+      <rect x="1012" y="388" width="104" height="44" fill="#2E2E2E" stroke="#7A7A7A" stroke-width="2">
+        <animate attributeName="fill" values="#2E2E2E;#F04E0F" keyTimes="0;0.7" calcMode="discrete" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="1064" y="415" fill="#F2F2F2">▶ PLAY</text>
+    </g>
+    <g font-size="10" fill="#7A7A7A" text-anchor="middle">
+      <text x="716" y="452">fence.wait()</text>
+      <text x="832" y="452">begin()</text>
+      <text x="948" y="452">end()</text>
+      <text x="1064" y="452">submit</text>
+    </g>
+
+    <text x="640" y="500" font-size="11" fill="#7A7A7A" letter-spacing="2">2 TAPES · ONE PER FRAME IN FLIGHT</text>
+    <rect x="640" y="514" width="70" height="40" fill="#0C0C0C" stroke="#F04E0F" stroke-width="2"/>
+    <circle cx="660" cy="534" r="9" fill="#2E2E2E"/><circle cx="690" cy="534" r="9" fill="#2E2E2E"/>
+    <text x="720" y="531" font-size="10" fill="#F2F2F2">frame 0</text>
+    <text x="720" y="545" font-size="9" fill="#F04E0F">in the deck</text>
+    <rect x="820" y="514" width="70" height="40" fill="#0C0C0C" stroke="#7A7A7A" stroke-width="2"/>
+    <circle cx="840" cy="534" r="9" fill="#2E2E2E"/><circle cx="870" cy="534" r="9" fill="#2E2E2E"/>
+    <text x="900" y="531" font-size="10" fill="#B0B0B0">frame 1</text>
+    <text x="900" y="545" font-size="9" fill="#7A7A7A">on the GPU</text>
+    <text x="1140" y="531" font-size="10" fill="#7A7A7A" text-anchor="end">allocated from</text>
+    <text x="1140" y="545" font-size="10" fill="#F2F2F2" text-anchor="end">VkCommandPool</text>
+  </g>
+</svg>
