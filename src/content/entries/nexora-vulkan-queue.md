@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-16T10:00:00
 tags: [cpp, vulkan]
-cover: /images/nexora-vulkan-queue.svg
+cover: /images/nexora-vulkan-queue-pipe.svg
 description: "VulkanQueue: the one place where recorded work reaches the GPU and finished images reach the screen."
 ---
 
