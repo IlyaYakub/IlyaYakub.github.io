@@ -15,7 +15,7 @@ const items = entries.map((entry, index) => {
   const match = title.match(/#(\d+):\s*(.+)$/);
   return {
     href: entryHref(entry),
-    number: match ? match[1] : String(index + 1),
+    number: entry.data.type === 'project' ? '0' : match ? match[1] : String(index + 1),
     name: match ? match[2] : title,
     isCurrent: entry.id === currentId,
   };

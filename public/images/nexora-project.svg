@@ -45,19 +45,18 @@
 
   <rect x="60" y="60" width="110" height="30" fill="none" stroke="#F04E0F"/>
   <text x="115" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">PROJECT</text>
-  <text x="186" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">C++23 · VULKAN 1.3</text>
+  <text x="186" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">C++23 · VULKAN · DIRECTX · OPENGL</text>
 
   <text x="52" y="222" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="128" font-weight="900" fill="#F2F2F2" letter-spacing="-5">NEXORA</text>
-  <rect x="540" y="130" width="22" height="92" fill="#F04E0F"/>
   <text x="60" y="268" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="18" fill="#F04E0F">a game engine written from scratch</text>
 
   <rect x="60" y="306" width="440" height="196" fill="#1A1A1A" stroke="#2E2E2E"/>
   <text x="76" y="332" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">ROADMAP</text>
   <text font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#F2F2F2" xml:space="preserve">
     <tspan x="76" y="364"><tspan fill="#F04E0F">[x]</tspan> core · window · input</tspan>
-    <tspan x="76" y="390"><tspan fill="#F04E0F">[x]</tspan> vulkan rhi · swapchain</tspan>
+    <tspan x="76" y="390"><tspan fill="#F04E0F">[x]</tspan> rhi · vulkan backend</tspan>
     <tspan x="76" y="416"><tspan fill="#F04E0F">[x]</tspan> renderer frame loop</tspan>
-    <tspan x="76" y="442"><tspan fill="#7A7A7A">[ ]</tspan> first triangle</tspan>
+    <tspan x="76" y="442"><tspan fill="#7A7A7A">[ ]</tspan> directx · opengl backends</tspan>
     <tspan x="76" y="476" fill="#F04E0F" font-weight="700"><tspan fill="#7A7A7A" font-weight="400">[ ]</tspan> nanite-like renderer</tspan>
   </text>
 
@@ -108,7 +107,7 @@
   <circle cx="860" cy="430" r="8" fill="#141414"/>
 
   <g font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">
-    <text x="860" y="66" text-anchor="middle">VULKAN</text>
+    <text x="860" y="66" text-anchor="middle">VULKAN · DX · GL</text>
     <line x1="860" y1="76" x2="860" y2="194" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
     <text x="640" y="334" text-anchor="end">RHI</text>
     <line x1="648" y1="330" x2="728" y2="330" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
