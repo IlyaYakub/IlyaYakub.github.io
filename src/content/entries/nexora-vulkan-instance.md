@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Nexora #11: Vulkan instance"
 type: note
 topic: nexora
