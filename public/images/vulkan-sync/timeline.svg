@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}</style>
+  <rect width="960" height="380" fill="#141414"/>
+  <rect x="0.5" y="0.5" width="959" height="379" fill="none" stroke="#2E2E2E"/>
+  <g class="m">
+    <text x="30" y="44" font-size="16" font-weight="700" fill="#F04E0F">timeline semaphore: a counter that only goes up</text>
+
+    <rect x="370" y="70" width="220" height="110" fill="#0C0C0C" stroke="#F2F2F2" stroke-width="3"/>
+    <text x="480" y="96" font-size="12" fill="#7A7A7A" text-anchor="middle" letter-spacing="2">VALUE</text>
+    <g font-size="56" font-weight="700" fill="#F04E0F" text-anchor="middle">
+      <text x="480" y="160">0<animate attributeName="opacity" values="1;0" keyTimes="0;0.2" calcMode="discrete" dur="8s" repeatCount="indefinite"/></text>
+      <text x="480" y="160" opacity="0">1<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.2;0.45" calcMode="discrete" dur="8s" repeatCount="indefinite"/></text>
+      <text x="480" y="160" opacity="0">2<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.45;0.7" calcMode="discrete" dur="8s" repeatCount="indefinite"/></text>
+      <text x="480" y="160" opacity="0">3<animate attributeName="opacity" values="0;1" keyTimes="0;0.7" calcMode="discrete" dur="8s" repeatCount="indefinite"/></text>
+    </g>
+
+    <g font-size="14">
+      <rect x="40" y="220" width="270" height="110" fill="#1A1A1A" stroke="#7A7A7A" stroke-width="2"/>
+      <text x="56" y="248" font-weight="700" fill="#F2F2F2">GPU job A</text>
+      <text x="56" y="274" fill="#B0B0B0">waits: nothing</text>
+      <text x="56" y="298" fill="#F04E0F">signals: 1</text>
+      <circle cx="282" cy="244" r="10" fill="#4DD08A"/>
+
+      <rect x="345" y="220" width="270" height="110" fill="#1A1A1A" stroke="#7A7A7A" stroke-width="2"/>
+      <text x="361" y="248" font-weight="700" fill="#F2F2F2">GPU job B</text>
+      <text x="361" y="274" fill="#B0B0B0">waits: value ≥ 1</text>
+      <text x="361" y="298" fill="#F04E0F">signals: 2</text>
+      <circle cx="587" cy="244" r="10" fill="#FF4D4D">
+        <animate attributeName="fill" values="#FF4D4D;#4DD08A" keyTimes="0;0.2" calcMode="discrete" dur="8s" repeatCount="indefinite"/>
+      </circle>
+
+      <rect x="650" y="220" width="270" height="110" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="2"/>
+      <text x="666" y="248" font-weight="700" fill="#F2F2F2">CPU</text>
+      <text x="666" y="274" fill="#B0B0B0">vkWaitSemaphores(≥ 3)</text>
+      <text x="666" y="298" fill="#7A7A7A">or signal it from the CPU</text>
+      <circle cx="892" cy="244" r="10" fill="#FF4D4D">
+        <animate attributeName="fill" values="#FF4D4D;#4DD08A" keyTimes="0;0.7" calcMode="discrete" dur="8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="30" y="360" font-size="13" fill="#B0B0B0">job C signals 3; anyone can wait for any value: one semaphore replaces a pile of binary ones and fences</text>
+  </g>
+</svg>

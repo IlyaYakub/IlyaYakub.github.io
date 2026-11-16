@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}</style>
+  <defs>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#1A1A1A"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#FF4D4D" stroke-width="3"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="400" fill="#141414"/>
+  <rect x="0.5" y="0.5" width="959" height="399" fill="none" stroke="#2E2E2E"/>
+  <g class="m">
+    <text x="30" y="44" font-size="16" font-weight="700" fill="#F04E0F">fence: the CPU waits for the GPU</text>
+    <text x="930" y="44" font-size="13" fill="#7A7A7A" text-anchor="end">2 frames in flight, one fence each</text>
+
+    <text x="30" y="128" font-size="16" font-weight="700" fill="#F2F2F2">CPU</text>
+    <rect x="110" y="100" width="120" height="44" fill="#1A1A1A" stroke="#F04E0F" stroke-width="2"/>
+    <text x="170" y="128" font-size="14" fill="#F2F2F2" text-anchor="middle">record 0</text>
+    <rect x="240" y="100" width="120" height="44" fill="#1A1A1A" stroke="#7A7A7A" stroke-width="2"/>
+    <text x="300" y="128" font-size="14" fill="#B0B0B0" text-anchor="middle">record 1</text>
+    <rect x="370" y="100" width="150" height="44" fill="url(#hatch)" stroke="#FF4D4D" stroke-width="2">
+      <animate attributeName="opacity" values="1;0.55;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="384" y="111" width="122" height="22" fill="#141414"/>
+    <text x="445" y="127" font-size="13" font-weight="700" fill="#FF4D4D" text-anchor="middle">wait fence 0</text>
+    <rect x="530" y="100" width="120" height="44" fill="#1A1A1A" stroke="#F04E0F" stroke-width="2"/>
+    <text x="590" y="128" font-size="14" fill="#F2F2F2" text-anchor="middle">record 0</text>
+    <rect x="660" y="100" width="120" height="44" fill="url(#hatch)" stroke="#FF4D4D" stroke-width="2" opacity="0.5"/>
+    <rect x="674" y="111" width="92" height="22" fill="#141414"/>
+    <text x="720" y="127" font-size="12" fill="#FF4D4D" text-anchor="middle">wait 1</text>
+
+    <text x="30" y="268" font-size="16" font-weight="700" fill="#F2F2F2">GPU</text>
+    <rect x="240" y="240" width="280" height="44" fill="#F04E0F"/>
+    <text x="380" y="268" font-size="14" font-weight="700" fill="#141414" text-anchor="middle">frame 0</text>
+    <rect x="520" y="240" width="260" height="44" fill="#B0B0B0"/>
+    <text x="650" y="268" font-size="14" font-weight="700" fill="#141414" text-anchor="middle">frame 1</text>
+    <rect x="780" y="240" width="150" height="44" fill="#F04E0F"/>
+    <text x="855" y="268" font-size="14" font-weight="700" fill="#141414" text-anchor="middle">frame 0</text>
+
+    <path d="M230 144 L240 236" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="M360 144 L516 236" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="M650 144 L776 236" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="5 5"/>
+    <text x="196" y="196" font-size="12" fill="#7A7A7A" text-anchor="end">submit + fence</text>
+
+    <line x1="520" y1="236" x2="520" y2="152" stroke="#F04E0F" stroke-width="4"/>
+    <path d="M512 162 L520 150 L528 162" fill="none" stroke="#F04E0F" stroke-width="4"/>
+    <circle cx="520" cy="262" r="10" fill="#F04E0F" stroke="#141414" stroke-width="3">
+      <animate attributeName="r" values="8;13;8" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="532" y="200" font-size="13" font-weight="700" fill="#F04E0F">GPU done: signal</text>
+
+    <line x1="100" y1="330" x2="930" y2="330" stroke="#2E2E2E" stroke-width="2"/>
+    <path d="M920 324 L932 330 L920 336" fill="none" stroke="#7A7A7A" stroke-width="2"/>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 820 0" dur="7s" repeatCount="indefinite"/>
+      <line x1="110" y1="84" x2="110" y2="316" stroke="#FFC23D" stroke-width="2"/>
+    </g>
+
+    <text x="30" y="370" font-size="13" fill="#B0B0B0">the CPU never gets more than 2 frames ahead, and never rewrites a command buffer the GPU still reads</text>
+  </g>
+</svg>
