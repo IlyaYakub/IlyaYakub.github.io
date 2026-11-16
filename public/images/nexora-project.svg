@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="fire" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC23D"/>
+      <stop offset="0.55" stop-color="#F04E0F"/>
+      <stop offset="1" stop-color="#F04E0F" stop-opacity="0.15"/>
+    </linearGradient>
+    <radialGradient id="heat" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F04E0F" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F04E0F" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="cylinder">
+      <line x1="798" y1="218" x2="922" y2="218" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="798" y1="234" x2="922" y2="234" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="798" y1="250" x2="922" y2="250" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="798" y1="266" x2="922" y2="266" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="798" y1="282" x2="922" y2="282" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="802" y1="298" x2="918" y2="298" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="806" y1="314" x2="914" y2="314" stroke="#7A7A7A" stroke-width="4"/>
+      <line x1="810" y1="330" x2="910" y2="330" stroke="#7A7A7A" stroke-width="4"/>
+
+      <rect x="818" y="205" width="84" height="165" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="2"/>
+      <rect x="830" y="208" width="60" height="160" fill="#0C0C0C" stroke="#2E2E2E" stroke-width="1.5"/>
+
+      <rect x="806" y="178" width="108" height="30" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="2"/>
+      <line x1="830" y1="186" x2="830" y2="200" stroke="#7A7A7A" stroke-width="3"/>
+      <line x1="890" y1="186" x2="890" y2="200" stroke="#7A7A7A" stroke-width="3"/>
+      <rect x="854" y="156" width="12" height="22" fill="#F2F2F2"/>
+      <rect x="851" y="168" width="18" height="6" fill="#7A7A7A"/>
+
+      <rect x="832" y="266" width="56" height="44" fill="#1A1A1A" stroke="#F04E0F" stroke-width="2"/>
+      <line x1="832" y1="274" x2="888" y2="274" stroke="#F04E0F" stroke-width="1.5"/>
+      <line x1="832" y1="281" x2="888" y2="281" stroke="#F04E0F" stroke-width="1.5"/>
+
+      <line x1="860" y1="294" x2="860" y2="400" stroke="#F2F2F2" stroke-width="12" stroke-linecap="round"/>
+      <line x1="860" y1="300" x2="860" y2="394" stroke="#1A1A1A" stroke-width="5"/>
+      <circle cx="860" cy="294" r="7" fill="#F04E0F"/>
+      <circle cx="860" cy="400" r="11" fill="#141414" stroke="#F2F2F2" stroke-width="2.5"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="110" height="30" fill="none" stroke="#F04E0F"/>
+  <text x="115" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">PROJECT</text>
+  <text x="186" y="81" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A" letter-spacing="2">C++23 · VULKAN 1.3</text>
+
+  <text x="52" y="222" font-family="'Inter Tight', 'Segoe UI', Arial, sans-serif" font-size="128" font-weight="900" fill="#F2F2F2" letter-spacing="-5">NEXORA</text>
+  <rect x="540" y="130" width="22" height="92" fill="#F04E0F"/>
+  <text x="60" y="268" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="18" fill="#F04E0F">a game engine written from scratch</text>
+
+  <rect x="60" y="306" width="440" height="196" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text x="76" y="332" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">ROADMAP</text>
+  <text font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="15" fill="#F2F2F2" xml:space="preserve">
+    <tspan x="76" y="364"><tspan fill="#F04E0F">[x]</tspan> core · window · input</tspan>
+    <tspan x="76" y="390"><tspan fill="#F04E0F">[x]</tspan> vulkan rhi · swapchain</tspan>
+    <tspan x="76" y="416"><tspan fill="#F04E0F">[x]</tspan> renderer frame loop</tspan>
+    <tspan x="76" y="442"><tspan fill="#7A7A7A">[ ]</tspan> first triangle</tspan>
+    <tspan x="76" y="476" fill="#F04E0F" font-weight="700"><tspan fill="#7A7A7A" font-weight="400">[ ]</tspan> nanite-like renderer</tspan>
+  </text>
+
+  <text x="60" y="556" font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" fill="#7A7A7A">github.com/IlyaYakub/Nexora</text>
+
+  <circle cx="860" cy="330" r="300" fill="url(#heat)"/>
+
+  <circle cx="860" cy="430" r="150" fill="none" stroke="#2E2E2E" stroke-width="16" stroke-dasharray="7 6">
+    <animateTransform attributeName="transform" type="rotate" from="0 860 430" to="360 860 430" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="860" cy="430" r="138" fill="none" stroke="#2E2E2E" stroke-width="2"/>
+
+  <polygon points="752,390 968,390 990,468 950,548 770,548 730,468" fill="#141414" stroke="#7A7A7A" stroke-width="2"/>
+  <line x1="770" y1="530" x2="950" y2="530" stroke="#2E2E2E" stroke-width="2"/>
+  <circle cx="752" cy="410" r="4" fill="#7A7A7A"/>
+  <circle cx="968" cy="410" r="4" fill="#7A7A7A"/>
+  <circle cx="780" cy="530" r="4" fill="#7A7A7A"/>
+  <circle cx="940" cy="530" r="4" fill="#7A7A7A"/>
+
+  <rect x="836" y="200" width="48" height="50" fill="#1A1A1A" stroke="#F04E0F" stroke-width="2"/>
+  <line x1="846" y1="208" x2="846" y2="242" stroke="#F04E0F" stroke-width="2"/>
+  <line x1="860" y1="208" x2="860" y2="242" stroke="#F04E0F" stroke-width="2"/>
+  <line x1="874" y1="208" x2="874" y2="242" stroke="#F04E0F" stroke-width="2"/>
+
+  <g transform="rotate(-30 860 430)">
+    <use href="#cylinder" xlink:href="#cylinder"/>
+    <rect x="831" y="209" width="58" height="56" fill="url(#fire)" opacity="0.3">
+      <animate attributeName="opacity" values="0.15;1;0.15;0.15" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <polyline points="860,152 852,138 866,130 856,114" fill="none" stroke="#FFC23D" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="1;0;0;0" dur="1.2s" repeatCount="indefinite"/>
+    </polyline>
+  </g>
+
+  <g transform="rotate(30 860 430)">
+    <use href="#cylinder" xlink:href="#cylinder"/>
+    <rect x="831" y="209" width="58" height="56" fill="url(#fire)" opacity="0.3">
+      <animate attributeName="opacity" values="0.15;1;0.15;0.15" dur="1.2s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+    <polyline points="860,152 868,138 854,130 864,114" fill="none" stroke="#FFC23D" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="1;0;0;0" dur="1.2s" begin="0.6s" repeatCount="indefinite"/>
+    </polyline>
+  </g>
+
+  <circle cx="860" cy="430" r="30" fill="none" stroke="#F04E0F" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M800 436 A60 60 0 0 0 920 436 Z" fill="#1A1A1A" stroke="#7A7A7A" stroke-width="2"/>
+  <circle cx="860" cy="430" r="20" fill="#F04E0F"/>
+  <circle cx="860" cy="430" r="8" fill="#141414"/>
+
+  <g font-family="'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#7A7A7A" letter-spacing="2">
+    <text x="860" y="66" text-anchor="middle">VULKAN</text>
+    <line x1="860" y1="76" x2="860" y2="194" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="640" y="334" text-anchor="end">RHI</text>
+    <line x1="648" y1="330" x2="728" y2="330" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="1050" y="334">RENDERER</text>
+    <line x1="992" y1="330" x2="1042" y2="330" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="1050" y="474">CORE</text>
+    <line x1="884" y1="470" x2="1042" y2="470" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3 4"/>
+  </g>
+</svg>

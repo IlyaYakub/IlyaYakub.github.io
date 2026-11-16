@@ -2,7 +2,7 @@
 title: "Nexora #13: Vulkan queue"
 type: note
 topic: nexora
-date: 2026-11-15T22:00:00
+date: 2026-11-16T10:00:00
 tags: [cpp, vulkan]
 cover: /images/nexora-vulkan-queue.svg
 description: "VulkanQueue: the one place where recorded work reaches the GPU and finished images reach the screen."

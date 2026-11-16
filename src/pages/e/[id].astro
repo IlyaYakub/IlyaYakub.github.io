@@ -8,8 +8,10 @@ import { getEntries, entryTitle, formatDate, type Entry } from '../../lib/entrie
 export async function getStaticPaths() {
   const entries = await getEntries();
   return entries.map((entry) => {
-    // oldest first, so the series reads #1, #2, ...
-    const series = entry.data.topic ? entries.filter((e) => e.data.topic === entry.data.topic).reverse() : [];
+    // oldest first, so the series reads #1, #2, ...; the project is the series itself, not an episode
+    const series = entry.data.topic
+      ? entries.filter((e) => e.data.topic === entry.data.topic && e.data.type !== 'project').reverse()
+      : [];
     return { params: { id: entry.id }, props: { entry, series } };
   });
 }
