@@ -1,4 +1,5 @@
 ---
+import { TYPES } from '../consts';
 import { entryHref, entryTitle, type Entry } from '../lib/entries';
 
 interface Props {
@@ -20,12 +21,18 @@ const items = entries.map((entry, index) => {
     isCurrent: entry.id === currentId,
   };
 });
+
+// "18 notes · 1 project": count each type, so a note is never called a post
+const counts = TYPES.map((type) => ({ type, count: entries.filter((e) => e.data.type === type).length }))
+  .filter(({ count }) => count > 0)
+  .map(({ type, count }) => `${count} ${type}${count === 1 ? '' : 's'}`)
+  .join(' · ');
 ---
 
-<nav class="series" aria-label={`${topic} posts`}>
+<nav class="series" aria-label={`${topic} entries`}>
   <div class="head mono">
     <a href={`/topic/${topic}`} class="name">{topic}</a>
-    <span class="muted">{entries.length} posts</span>
+    <span class="muted">{counts}</span>
   </div>
   <ol>
     {
