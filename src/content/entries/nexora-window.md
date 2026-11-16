@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T13:00:00
 tags: [cpp, glfw, architecture]
-cover: /images/nexora-window.svg
+cover: /images/nexora-window-house.svg
 description: "A window behind an interface: IWindow, a final GLFW implementation, and no OpenGL context."
 ---
 

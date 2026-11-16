@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-16T12:00:00
 tags: [cpp, vulkan, sync]
-cover: /images/nexora-vulkan-semaphore.svg
+cover: /images/nexora-vulkan-semaphore-signals.svg
 description: "VulkanSemaphore: how GPU steps wait for each other (acquire, render, present) without the CPU in the middle."
 ---
 

@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-16T11:00:00
 tags: [cpp, vulkan, sync]
-cover: /images/nexora-vulkan-fence.svg
+cover: /images/nexora-vulkan-fence-crossing.svg
 description: "VulkanFence: how the CPU waits for the GPU, so a frame's command buffer is never rewritten while the GPU still reads it."
 ---
 

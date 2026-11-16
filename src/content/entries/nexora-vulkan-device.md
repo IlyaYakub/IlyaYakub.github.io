@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T21:00:00
 tags: [cpp, vulkan]
-cover: /images/nexora-vulkan-device.svg
+cover: /images/nexora-vulkan-device-casting.svg
 description: "VulkanDevice: pick a GPU, turn on the Vulkan 1.3 features the renderer needs, and create the logical device with one graphics queue."
 ---
 

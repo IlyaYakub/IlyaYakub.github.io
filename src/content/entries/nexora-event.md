@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T12:00:00
 tags: [cpp, templates, googletest]
-cover: /images/nexora-event.svg
+cover: /images/nexora-event-radio.svg
 description: "A tiny multicast event, like Unreal's multicast delegate: add, remove, invoke."
 ---
 

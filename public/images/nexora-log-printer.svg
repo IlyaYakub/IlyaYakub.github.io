@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}.h{font-family:'Inter Tight','Segoe UI',Arial,sans-serif;font-weight:900}</style>
+  <defs>
+    <clipPath id="paper"><rect x="690" y="64" width="280" height="270"/></clipPath>
+    <g id="lines" font-size="10">
+      <text x="702" y="0" fill="#7A7A7A">[20:06] LogMain: Verbose: ...</text>
+      <text x="702" y="26" fill="#141414">[20:06] LogMain: Display: Nexora 0.1</text>
+      <text x="702" y="52" fill="#B26A00">[20:06] LogMain: Warning: 42 (main.cpp:9)</text>
+      <text x="702" y="78" fill="#141414">[20:06] LogWindow: Display: created</text>
+      <text x="702" y="104" fill="#C8102E">[20:06] LogVulkan: Error: ... (Vk.cpp:31)</text>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text class="m" x="108" y="81" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text class="m" x="172" y="81" font-size="14" fill="#7A7A7A" letter-spacing="2">#2</text>
+
+  <text class="h" x="56" y="192" font-size="82" fill="#F2F2F2" letter-spacing="-3">LOG</text>
+  <text class="m" x="60" y="234" font-size="18" fill="#F04E0F">UE_LOG, simplified, on spdlog</text>
+
+  <rect x="60" y="264" width="500" height="196" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text class="m" x="76" y="290" font-size="12" fill="#7A7A7A" letter-spacing="2">MAIN.CPP</text>
+  <text class="m" font-size="15" fill="#F2F2F2" xml:space="preserve">
+    <tspan x="76" y="322">DEFINE_LOG_CATEGORY_STATIC(<tspan fill="#F04E0F">LogMain</tspan>);</tspan>
+    <tspan x="76" y="358">NX_LOG(LogMain, <tspan fill="#B0B0B0">Display</tspan>,</tspan>
+    <tspan x="76" y="382">       "Nexora {}.{}", 0, 1);</tspan>
+    <tspan x="76" y="418">NX_LOG(LogMain, <tspan fill="#FFC23D">Warning</tspan>, "{}", 42);</tspan>
+  </text>
+  <text class="m" x="76" y="446" font-size="12" fill="#7A7A7A">// Warning / Error / Fatal add file:line</text>
+
+  <text class="m" x="60" y="508" font-size="14" fill="#7A7A7A">TEST(LogTest, ShouldAcceptOnlyLogCategory)</text>
+  <text class="m" x="60" y="532" font-size="14" fill="#F2F2F2">EXPECT_FALSE(ValidLogCategory&lt;int&gt;);</text>
+  <text class="m" x="60" y="556" font-size="14" fill="#7A7A7A">// the first GoogleTest test</text>
+
+  <g class="m">
+    <rect x="690" y="64" width="280" height="270" fill="#EDE6D6"/>
+    <g clip-path="url(#paper)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 -130" dur="6.5s" repeatCount="indefinite"/>
+        <use href="#lines" y="120"/>
+        <use href="#lines" y="250"/>
+        <use href="#lines" y="380"/>
+      </g>
+    </g>
+    <line x1="690" y1="64" x2="690" y2="334" stroke="#C9C0AC" stroke-width="2" stroke-dasharray="2 10"/>
+    <line x1="970" y1="64" x2="970" y2="334" stroke="#C9C0AC" stroke-width="2" stroke-dasharray="2 10"/>
+
+    <rect x="660" y="330" width="340" height="110" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="2"/>
+    <rect x="680" y="326" width="300" height="10" fill="#0C0C0C" stroke="#7A7A7A" stroke-width="1.5"/>
+    <rect x="700" y="338" width="34" height="14" fill="#F04E0F">
+      <animate attributeName="x" values="700;930;700" dur="1.3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="680" y="378" font-size="14" font-weight="700" fill="#F2F2F2">spdlog::logger</text>
+    <text x="680" y="398" font-size="11" fill="#7A7A7A">"Nexora" · two sinks</text>
+    <circle cx="950" cy="372" r="6" fill="#F04E0F">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="972" cy="372" r="6" fill="#2E2E2E"/>
+    <rect x="680" y="412" width="300" height="12" fill="#0C0C0C"/>
+
+    <path d="M1000 360 H1030 V210" fill="none" stroke="#7A7A7A" stroke-width="2"/>
+    <path d="M1000 410 H1030 V440" fill="none" stroke="#7A7A7A" stroke-width="2"/>
+
+    <rect x="1020" y="110" width="120" height="96" fill="#0C0C0C" stroke="#F2F2F2" stroke-width="3"/>
+    <text x="1030" y="132" font-size="9" fill="#B0B0B0">Display: Nexora</text>
+    <text x="1030" y="150" font-size="9" fill="#FFC23D">Warning: 42</text>
+    <text x="1030" y="168" font-size="9" fill="#FF4D4D">Error: ...</text>
+    <rect x="1030" y="178" width="7" height="11" fill="#F2F2F2">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1070" y="206" width="20" height="8" fill="#7A7A7A"/>
+    <text x="1080" y="232" font-size="10" fill="#F2F2F2" text-anchor="middle">console</text>
+    <text x="1080" y="246" font-size="10" fill="#7A7A7A" text-anchor="middle">info and up</text>
+
+    <rect x="1030" y="440" width="100" height="100" fill="#1A1A1A" stroke="#F2F2F2" stroke-width="2"/>
+    <rect x="1040" y="452" width="80" height="24" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+    <rect x="1040" y="482" width="80" height="24" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+    <rect x="1040" y="512" width="80" height="20" fill="none" stroke="#7A7A7A" stroke-width="1.5"/>
+    <rect x="1070" y="462" width="20" height="4" fill="#F04E0F"/>
+    <rect x="1070" y="492" width="20" height="4" fill="#7A7A7A"/>
+    <text x="1080" y="526" font-size="9" fill="#B0B0B0" text-anchor="middle">nexora.log</text>
+    <text x="1020" y="430" font-size="10" fill="#7A7A7A" text-anchor="end">file · everything</text>
+
+    <text x="660" y="476" font-size="11" fill="#7A7A7A" letter-spacing="2">CATEGORY + VERBOSITY</text>
+    <text x="660" y="500" font-size="12" fill="#F2F2F2">Verbose · Log · Display</text>
+    <text x="660" y="520" font-size="12" fill="#FFC23D">Warning · <tspan fill="#FF4D4D">Error</tspan> · <tspan fill="#F04E0F">Fatal</tspan></text>
+    <text x="660" y="540" font-size="11" fill="#7A7A7A">Fatal aborts</text>
+  </g>
+</svg>

@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T19:00:00
 tags: [cpp, vulkan, conan, cmake]
-cover: /images/nexora-vulkan-dependencies.svg
+cover: /images/nexora-vulkan-dependencies-delivery.svg
 description: "Vulkan headers, the loader and vk-bootstrap via Conan, plus one macro to check every VkResult."
 ---
 

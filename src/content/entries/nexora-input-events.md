@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T15:00:00
 tags: [cpp, input, variant]
-cover: /images/nexora-input.svg
+cover: /images/nexora-input-gumball.svg
 description: "Keys, mouse and window changes as one InputEvent: engine enums and a std::variant."
 ---
 

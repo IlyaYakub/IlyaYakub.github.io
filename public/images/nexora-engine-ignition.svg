@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}.h{font-family:'Inter Tight','Segoe UI',Arial,sans-serif;font-weight:900}</style>
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text class="m" x="108" y="81" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text class="m" x="172" y="81" font-size="14" fill="#7A7A7A" letter-spacing="2">#8</text>
+
+  <text class="h" x="56" y="192" font-size="82" fill="#F2F2F2" letter-spacing="-3">ENGINE</text>
+  <text class="m" x="60" y="234" font-size="18" fill="#F04E0F">main() only turns the key</text>
+
+  <rect x="60" y="264" width="500" height="196" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text class="m" x="76" y="290" font-size="12" fill="#7A7A7A" letter-spacing="2">ENGINE::ONWINDOWEVENT</text>
+  <text class="m" font-size="15" fill="#F2F2F2" xml:space="preserve">
+    <tspan x="76" y="322">std::<tspan fill="#F04E0F">visit</tspan>(</tspan>
+    <tspan x="76" y="346">    <tspan fill="#F04E0F">Overloaded</tspan>{</tspan>
+    <tspan x="76" y="370">        [](const KeyEventData&amp;) { ... },</tspan>
+    <tspan x="76" y="394">        [](const WindowResizeEventData&amp;) { ... },</tspan>
+    <tspan x="76" y="418">    }, event.data);</tspan>
+  </text>
+  <text class="m" x="76" y="446" font-size="12" fill="#7A7A7A">// one lambda for each of the six alternatives</text>
+
+  <text class="m" x="60" y="508" font-size="14" fill="#7A7A7A">EngineConfig.h.in</text>
+  <text class="m" x="60" y="532" font-size="14" fill="#F2F2F2">c_engineVersion = "@PROJECT_VERSION@";</text>
+  <text class="m" x="60" y="556" font-size="14" fill="#7A7A7A">// CMake writes the version at configure time</text>
+
+  <g class="m">
+    <rect x="640" y="70" width="500" height="410" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="2"/>
+
+    <circle cx="820" cy="260" r="138" fill="#0C0C0C" stroke="#F2F2F2" stroke-width="4"/>
+    <path d="M726.5 314 A108 108 0 1 1 913.5 314" fill="none" stroke="#7A7A7A" stroke-width="12" stroke-dasharray="3 14"/>
+    <path d="M928 260 A108 108 0 0 1 913.5 314" fill="none" stroke="#F04E0F" stroke-width="12"/>
+    <text x="735" y="300" font-size="12" fill="#B0B0B0">0</text>
+    <text x="820" y="186" font-size="12" fill="#B0B0B0" text-anchor="middle">60</text>
+    <text x="894" y="300" font-size="12" fill="#F04E0F" text-anchor="end">144</text>
+    <text x="820" y="330" font-size="12" font-weight="700" fill="#F2F2F2" text-anchor="middle">FPS</text>
+    <text x="820" y="350" font-size="10" fill="#7A7A7A" text-anchor="middle">Timer · deltaSeconds</text>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-120 820 260; 50 820 260; 20 820 260; 95 820 260; -120 820 260" keyTimes="0;0.3;0.5;0.75;1" dur="4s" repeatCount="indefinite"/>
+      <polygon points="816,262 824,262 820,166" fill="#F04E0F"/>
+    </g>
+    <circle cx="820" cy="260" r="12" fill="#F2F2F2"/>
+
+    <circle cx="1050" cy="180" r="72" fill="#0C0C0C" stroke="#F2F2F2" stroke-width="3"/>
+    <path d="M995 212 A64 64 0 1 1 1105 212" fill="none" stroke="#7A7A7A" stroke-width="7" stroke-dasharray="2 9"/>
+    <g transform="rotate(40 1050 180)">
+      <polygon points="1047,182 1053,182 1050,128" fill="#F2F2F2"/>
+    </g>
+    <circle cx="1050" cy="180" r="7" fill="#F04E0F"/>
+    <text x="1050" y="222" font-size="10" fill="#7A7A7A" text-anchor="middle">VERSION</text>
+    <text x="1050" y="238" font-size="12" font-weight="700" fill="#F2F2F2" text-anchor="middle">0.1.0</text>
+
+    <circle cx="1050" cy="370" r="58" fill="#0C0C0C" stroke="#F2F2F2" stroke-width="3"/>
+    <circle cx="1050" cy="370" r="40" fill="none" stroke="#2E2E2E" stroke-width="2"/>
+    <text x="1050" y="324" font-size="9" fill="#7A7A7A" text-anchor="middle">OFF</text>
+    <text x="1096" y="378" font-size="9" fill="#F04E0F">RUN</text>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 1050 370; 0 1050 370; 90 1050 370; 90 1050 370; 0 1050 370" keyTimes="0;0.15;0.3;0.85;1" dur="4s" repeatCount="indefinite"/>
+      <rect x="1044" y="340" width="12" height="60" fill="#B0B0B0"/>
+      <rect x="1030" y="400" width="40" height="34" fill="#F04E0F"/>
+      <circle cx="1050" cy="417" r="6" fill="#141414"/>
+    </g>
+    <circle cx="1050" cy="370" r="6" fill="#141414"/>
+
+    <g font-size="10" text-anchor="middle">
+      <circle cx="680" cy="440" r="11" fill="#2E2E2E"><animate attributeName="fill" values="#2E2E2E;#2E2E2E;#F04E0F;#F04E0F" keyTimes="0;0.2;0.25;1" dur="4s" repeatCount="indefinite"/></circle>
+      <text x="680" y="466" fill="#B0B0B0">Window</text>
+      <circle cx="760" cy="440" r="11" fill="#2E2E2E"><animate attributeName="fill" values="#2E2E2E;#2E2E2E;#F04E0F;#F04E0F" keyTimes="0;0.3;0.35;1" dur="4s" repeatCount="indefinite"/></circle>
+      <text x="760" y="466" fill="#B0B0B0">Timer</text>
+      <circle cx="840" cy="440" r="11" fill="#2E2E2E"><animate attributeName="fill" values="#2E2E2E;#2E2E2E;#F04E0F;#F04E0F" keyTimes="0;0.4;0.45;1" dur="4s" repeatCount="indefinite"/></circle>
+      <text x="840" y="466" fill="#B0B0B0">RHI</text>
+      <circle cx="920" cy="440" r="11" fill="#2E2E2E"><animate attributeName="fill" values="#2E2E2E;#2E2E2E;#F04E0F;#F04E0F" keyTimes="0;0.5;0.55;1" dur="4s" repeatCount="indefinite"/></circle>
+      <text x="920" y="466" fill="#B0B0B0">Renderer</text>
+    </g>
+
+    <rect x="640" y="500" width="500" height="50" fill="#0C0C0C" stroke="#F04E0F" stroke-width="2"/>
+    <text x="660" y="530" font-size="14" fill="#F2F2F2">int main() { Engine engine; engine.<tspan fill="#F04E0F" font-weight="700">run</tspan>(); }</text>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <style>.m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace}.h{font-family:'Inter Tight','Segoe UI',Arial,sans-serif;font-weight:900}</style>
+  <defs>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC23D" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#F04E0F" stop-opacity="0.08"/>
+    </linearGradient>
+    <clipPath id="stage"><rect x="640" y="60" width="500" height="500"/></clipPath>
+    <g id="card">
+      <rect x="-60" y="0" width="120" height="120" fill="#1A1A1A" stroke-width="3"/>
+      <rect x="-40" y="22" width="80" height="44" fill="none" stroke-width="2"/>
+      <circle cx="-18" cy="44" r="12" fill="none" stroke-width="2"/>
+      <circle cx="18" cy="44" r="12" fill="none" stroke-width="2"/>
+      <line x1="-44" y1="120" x2="-44" y2="132" stroke-width="3"/>
+      <line x1="44" y1="120" x2="44" y2="132" stroke-width="3"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="#141414"/>
+  <rect x="24.5" y="24.5" width="1151" height="581" fill="none" stroke="#2E2E2E"/>
+
+  <rect x="60" y="60" width="96" height="30" fill="none" stroke="#F04E0F"/>
+  <text class="m" x="108" y="81" font-size="14" font-weight="700" fill="#F04E0F" text-anchor="middle" letter-spacing="2">NEXORA</text>
+  <text class="m" x="172" y="81" font-size="14" fill="#7A7A7A" letter-spacing="2">#12</text>
+
+  <text class="h" x="56" y="192" font-size="82" fill="#F2F2F2" letter-spacing="-3">DEVICE</text>
+  <text class="m" x="60" y="234" font-size="18" fill="#F04E0F">casting call for GPUs</text>
+
+  <rect x="60" y="264" width="500" height="196" fill="#1A1A1A" stroke="#2E2E2E"/>
+  <text class="m" x="76" y="290" font-size="12" fill="#7A7A7A" letter-spacing="2">SELECTPHYSICALDEVICE</text>
+  <text class="m" font-size="15" fill="#F2F2F2" xml:space="preserve">
+    <tspan x="76" y="322">if (deviceType == <tspan fill="#F04E0F">DISCRETE_GPU</tspan> &amp;&amp;</tspan>
+    <tspan x="76" y="346">    apiVersion &gt;= <tspan fill="#F04E0F">VK_API_VERSION_1_3</tspan>)</tspan>
+    <tspan x="76" y="370">{</tspan>
+    <tspan x="76" y="394">    return physicalDevice;</tspan>
+    <tspan x="76" y="418">}</tspan>
+  </text>
+  <text class="m" x="76" y="446" font-size="12" fill="#7A7A7A">// none found: Fatal, the engine can't run</text>
+
+  <text class="m" x="60" y="508" font-size="14" fill="#7A7A7A">vkCreateDevice: 1 graphics queue,</text>
+  <text class="m" x="60" y="532" font-size="14" fill="#F2F2F2">synchronization2 + dynamicRendering + swapchain</text>
+  <text class="m" x="60" y="556" font-size="14" fill="#7A7A7A">// plain Vulkan, no vk-bootstrap</text>
+
+  <g class="m">
+    <ellipse cx="890" cy="470" rx="250" ry="40" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="2"/>
+
+    <g clip-path="url(#stage)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="30 890 86; 30 890 86; 0 890 86; 0 890 86; -30 890 86; -30 890 86; 30 890 86" keyTimes="0;0.15;0.3;0.4;0.55;0.95;1" dur="5s" repeatCount="indefinite"/>
+        <polygon points="878,96 902,96 970,470 810,470" fill="url(#beam)"/>
+      </g>
+    </g>
+    <rect x="866" y="66" width="48" height="30" fill="#F2F2F2"/>
+    <rect x="874" y="96" width="32" height="8" fill="#F04E0F"/>
+    <line x1="890" y1="60" x2="890" y2="66" stroke="#7A7A7A" stroke-width="3"/>
+
+    <g transform="translate(720 300)" stroke="#7A7A7A"><use href="#card"/></g>
+    <text x="720" y="452" font-size="12" font-weight="700" fill="#B0B0B0" text-anchor="middle">Integrated</text>
+    <text x="720" y="470" font-size="10" fill="#7A7A7A" text-anchor="middle">not discrete</text>
+    <text x="720" y="296" font-size="24" fill="#7A7A7A" text-anchor="middle">✕</text>
+
+    <g transform="translate(890 300)" stroke="#7A7A7A"><use href="#card"/></g>
+    <text x="890" y="452" font-size="12" font-weight="700" fill="#B0B0B0" text-anchor="middle">Discrete 1.2</text>
+    <text x="890" y="470" font-size="10" fill="#7A7A7A" text-anchor="middle">API too old</text>
+    <text x="890" y="296" font-size="24" fill="#7A7A7A" text-anchor="middle">✕</text>
+
+    <g transform="translate(1060 300)" stroke="#F04E0F"><use href="#card"/></g>
+    <text x="1060" y="452" font-size="12" font-weight="700" fill="#F04E0F" text-anchor="middle">Discrete 1.3</text>
+    <text x="1060" y="470" font-size="10" fill="#F2F2F2" text-anchor="middle">selected</text>
+    <text x="1060" y="296" font-size="22" fill="#F04E0F" text-anchor="middle">★
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.55;0.6;0.95;1" dur="5s" repeatCount="indefinite"/>
+    </text>
+
+    <rect x="640" y="70" width="190" height="96" fill="#0C0C0C" stroke="#2E2E2E" stroke-width="2"/>
+    <text x="654" y="92" font-size="10" fill="#7A7A7A" letter-spacing="1">JURY</text>
+    <text x="654" y="114" font-size="11" fill="#F2F2F2">vkEnumerate</text>
+    <text x="654" y="130" font-size="11" fill="#F2F2F2">  PhysicalDevices</text>
+    <text x="654" y="152" font-size="10" fill="#7A7A7A">first match wins</text>
+
+    <rect x="950" y="70" width="190" height="130" fill="#1A1A1A" stroke="#F04E0F" stroke-width="2">
+      <animate attributeName="opacity" values="0.25;0.25;1;1;0.25" keyTimes="0;0.6;0.65;0.95;1" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animate attributeName="opacity" values="0.25;0.25;1;1;0.25" keyTimes="0;0.6;0.65;0.95;1" dur="5s" repeatCount="indefinite"/>
+      <text x="964" y="92" font-size="10" fill="#F04E0F" letter-spacing="1">CONTRACT · VkDevice</text>
+      <text x="964" y="114" font-size="11" fill="#F2F2F2">1 graphics queue</text>
+      <text x="964" y="134" font-size="11" fill="#F2F2F2">synchronization2</text>
+      <text x="964" y="154" font-size="11" fill="#F2F2F2">dynamicRendering</text>
+      <text x="964" y="174" font-size="11" fill="#F2F2F2">VK_KHR_swapchain</text>
+      <text x="964" y="192" font-size="9" fill="#7A7A7A">signed: vkCreateDevice</text>
+    </g>
+    <text x="890" y="540" font-size="11" fill="#7A7A7A" text-anchor="middle" letter-spacing="2">VkPhysicalDevice: enumerated, never created</text>
+  </g>
+</svg>

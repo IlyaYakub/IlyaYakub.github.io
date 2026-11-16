@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T16:00:00
 tags: [cpp, glfw, input, googletest]
-cover: /images/nexora-key-mapper.svg
+cover: /images/nexora-key-mapper-switchboard.svg
 description: "GLFW callbacks turn into InputEvents: the user-pointer trick and a flat switch for key codes."
 ---
 

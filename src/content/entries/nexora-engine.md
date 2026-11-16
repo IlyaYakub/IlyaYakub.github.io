@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T17:00:00
 tags: [cpp, cmake, variant, architecture]
-cover: /images/nexora-engine.svg
+cover: /images/nexora-engine-ignition.svg
 description: "One Engine class owns the managers and the loop. Events go through std::visit, and CMake writes the version."
 ---
 

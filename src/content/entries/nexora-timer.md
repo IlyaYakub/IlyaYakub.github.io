@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T18:00:00
 tags: [cpp, chrono, googletest]
-cover: /images/nexora-timer.svg
+cover: /images/nexora-timer-stopwatch.svg
 description: "Delta time and total time from std::chrono::steady_clock, ticked once per frame."
 ---
 

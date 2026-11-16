@@ -4,7 +4,7 @@ type: note
 topic: nexora
 date: 2026-11-15T14:00:00
 tags: [cpp, glfw, architecture, googletest]
-cover: /images/nexora-window-manager.svg
+cover: /images/nexora-window-manager-keys.svg
 description: "One owner for all windows and for GLFW itself: ids, a map, and the main loop."
 ---
 
