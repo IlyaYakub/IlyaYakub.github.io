@@ -1,10 +1,10 @@
----
+﻿---
 title: "Nexora #11: Vulkan instance"
 type: note
 topic: nexora
 date: 2026-11-15T20:00:00
 tags: [cpp, vulkan, vk-bootstrap]
-cover: /images/nexora-vulkan-instance.svg
+cover: /images/nexora-vulkan-instance-passport.svg
 description: "The first Vulkan object: VkInstance via vk-bootstrap, with validation layers in debug builds."
 ---
 
