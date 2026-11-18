@@ -1,6 +1,6 @@
 ---
 title: "Nexora #2: Graphics API"
-type: post
+type: note
 topic: nexora
 date: 2026-11-18T11:00:00
 tags: [cpp, vulkan, rhi, architecture]
