@@ -13,7 +13,7 @@ description: "A game engine written from scratch in C++23, with Vulkan, DirectX 
 
 The renderer talks to the GPU through an **RHI** (render hardware interface), so it doesn't depend on one graphics API. Three backends are planned: **Vulkan**, **DirectX** and **OpenGL**. Vulkan comes first.
 
-The way there is long, so the engine is built one small step at a time, and every step gets its own note. The series is in the sidebar, or all at once on the [nexora topic page](/topic/nexora).
+The way there is long, so the notes cover the engine one big part at a time. They are in the sidebar, or all at once in the [Nexora playlist](/topic/nexora).
 
 ## Stack
 

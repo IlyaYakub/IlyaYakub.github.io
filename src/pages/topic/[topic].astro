@@ -1,24 +1,183 @@
 ---
 import Base from '../../layouts/Base.astro';
-import EntryGrid from '../../components/EntryGrid.astro';
-import FeedFilters from '../../components/FeedFilters.astro';
-import { getEntries, getTopics, type Entry } from '../../lib/entries';
+import { getEntries, getTopics, entryHref, entryTitle, type Entry } from '../../lib/entries';
 
+// A topic page is a playlist: the project on top, its entries below, oldest first.
 export async function getStaticPaths() {
   const all = await getEntries();
-  const topics = getTopics(all);
-  return topics.map((topic) => ({
-    params: { topic },
-    props: { topics, entries: all.filter((e) => e.data.topic === topic) },
-  }));
+  return getTopics(all).map((topic) => {
+    const entries = all.filter((e) => e.data.topic === topic).reverse();
+    return {
+      params: { topic },
+      props: {
+        project: entries.find((e) => e.data.type === 'project'),
+        entries: entries.filter((e) => e.data.type !== 'project'),
+      },
+    };
+  });
 }
 
 const { topic } = Astro.params;
-const { topics, entries } = Astro.props as { topics: string[]; entries: Entry[] };
+const { project, entries } = Astro.props as { project?: Entry; entries: Entry[] };
+
+// "Nexora #2: Graphics API" -> "Graphics API"
+const items = entries.map((entry, index) => ({
+  href: entryHref(entry),
+  number: String(index + 1).padStart(2, '0'),
+  name: entryTitle(entry).replace(/^.*#\d+:\s*/, ''),
+  description: entry.data.description,
+  cover: entry.data.cover,
+  type: entry.data.type,
+}));
 ---
 
-<Base title={topic}>
-  <h1 class="section-title">{topic}</h1>
-  <FeedFilters topics={topics} topic={topic} />
-  <EntryGrid entries={entries} />
+<Base title={project?.data.title ?? topic} description={project?.data.description}>
+  <section class="head">
+    {project?.data.cover && <img src={project.data.cover} alt="" class="cover" />}
+    <div class="info">
+      <div class="meta mono">
+        <span class="badge">playlist</span>
+        <span class="muted">{entries.length} {entries.length === 1 ? 'entry' : 'entries'}</span>
+      </div>
+      <h1 class="title">{project?.data.title ?? topic}</h1>
+      {project?.data.description && <p class="muted">{project.data.description}</p>}
+      <div class="links mono">
+        {project && <a href={entryHref(project)} class="arrow-link">About the project →</a>}
+        {project?.data.repo && <a href={project.data.repo} class="arrow-link" rel="noopener">Repo ↗</a>}
+      </div>
+    </div>
+  </section>
+
+  <ol class="list">
+    {
+      items.map((item) => (
+        <li>
+          <a href={item.href} class="item">
+            <span class="number mono">{item.number}</span>
+            {item.cover && <img src={item.cover} alt="" class="thumb" loading="lazy" />}
+            <span class="text">
+              <span class="name">{item.name}</span>
+              {item.description && <span class="desc muted">{item.description}</span>}
+            </span>
+            <span class="badge type">{item.type}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
 </Base>
+
+<style>
+  .head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .title {
+    margin: 16px 0 12px;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .info p {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border);
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .item:hover {
+    border-left-color: var(--accent);
+    background: var(--surface);
+  }
+
+  .number {
+    flex: none;
+    width: 28px;
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .thumb {
+    flex: none;
+    width: 200px;
+    height: auto;
+    border: 1px solid var(--border);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  .type {
+    flex: none;
+  }
+
+  @media (max-width: 800px) {
+    .head {
+      grid-template-columns: 1fr;
+    }
+
+    .thumb,
+    .type {
+      display: none;
+    }
+  }
+</style>

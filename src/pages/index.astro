@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import EntryGrid from '../components/EntryGrid.astro';
+import PlaylistCard from '../components/PlaylistCard.astro';
 import { getEntries } from '../lib/entries';
 import { SITE } from '../consts';
 
-const latest = (await getEntries()).slice(0, 9);
+// Every project is a playlist: its notes are reached only through it.
+const all = await getEntries();
+const projects = all.filter((e) => e.data.type === 'project');
 ---
 
 <Base>
@@ -24,11 +26,10 @@ const latest = (await getEntries()).slice(0, 9);
   </section>
 
   <section>
-    <div class="head">
-      <h2 class="section-title">Latest</h2>
-      <a href="/feed" class="arrow-link">All entries →</a>
+    <h2 class="section-title">Playlists</h2>
+    <div class="playlists">
+      {projects.map((project) => <PlaylistCard project={project} entries={all.filter((e) => e.data.topic === project.data.topic && e.id !== project.id)} />)}
     </div>
-    <EntryGrid entries={latest} />
   </section>
 </Base>
 
@@ -85,10 +86,9 @@ const latest = (await getEntries()).slice(0, 9);
     text-decoration: underline;
   }
 
-  .head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+  .playlists {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
     gap: 16px;
   }
 

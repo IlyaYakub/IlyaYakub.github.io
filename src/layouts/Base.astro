@@ -11,8 +11,6 @@ const { title, description = SITE.description } = Astro.props;
 const fullTitle = title ? `${title} — ${SITE.name}` : SITE.name;
 const path = Astro.url.pathname;
 const nav = [
-  { href: '/feed', label: 'Feed' },
-  { href: '/tags', label: 'Tags' },
   { href: '/about', label: 'About' },
 ];
 ---
