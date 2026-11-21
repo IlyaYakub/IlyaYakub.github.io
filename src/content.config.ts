@@ -16,6 +16,7 @@ const entries = defineCollection({
       description: z.string().optional(),
       cover: z.string().optional(),
       topic: z.string().optional(),
+      project: z.string().optional(),
       draft: z.boolean().default(false),
     })
     .refine((e) => e.type !== 'link' || e.url, { message: 'type "link" requires url' })

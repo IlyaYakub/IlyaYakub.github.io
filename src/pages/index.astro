@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import SectionCard from '../components/SectionCard.astro';
-import { getEntries } from '../lib/entries';
+import CollectionCard from '../components/CollectionCard.astro';
+import { getEntries, projectLessons, lessonsLabel } from '../lib/entries';
 import { SITE } from '../consts';
 
-// Every section groups its pages: they are reached only through it.
+// Projects hold sections, sections hold lessons: lessons are reached only through them.
 const all = await getEntries();
-const sections = all.filter((e) => e.data.type === 'section');
+const projects = all.filter((e) => e.data.type === 'project');
 ---
 
 <Base>
@@ -26,9 +26,13 @@ const sections = all.filter((e) => e.data.type === 'section');
   </section>
 
   <section>
-    <h2 class="section-title">Sections</h2>
-    <div class="sections">
-      {sections.map((section) => <SectionCard section={section} entries={all.filter((e) => e.data.topic === section.data.topic && e.id !== section.id)} />)}
+    <h2 class="section-title">Projects</h2>
+    <div class="collections">
+      {
+        projects.map((project) => (
+          <CollectionCard entry={project} href={`/project/${project.id}`} count={lessonsLabel(projectLessons(all, project).length)} linkLabel="Open project" />
+        ))
+      }
     </div>
   </section>
 </Base>
@@ -86,7 +90,7 @@ const sections = all.filter((e) => e.data.type === 'section');
     text-decoration: underline;
   }
 
-  .sections {
+  .collections {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
     gap: 16px;

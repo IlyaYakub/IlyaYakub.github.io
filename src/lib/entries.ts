@@ -18,6 +18,22 @@ export function entryTitle(e: Entry): string {
   return text.length > 60 ? text.slice(0, 60) + '…' : text;
 }
 
+/** Lessons of a section: every entry of its topic except the section itself. */
+export function sectionLessons(entries: Entry[], section: Entry): Entry[] {
+  return entries.filter((e) => e.data.topic === section.data.topic && e.data.type !== 'section');
+}
+
+/** Sections of a project, oldest first: a section names its project by the project entry id. */
+export function projectSections(entries: Entry[], project: Entry): Entry[] {
+  return entries.filter((e) => e.data.type === 'section' && e.data.project === project.id).reverse();
+}
+
+export function projectLessons(entries: Entry[], project: Entry): Entry[] {
+  return projectSections(entries, project).flatMap((section) => sectionLessons(entries, section));
+}
+
+export const lessonsLabel = (count: number) => `${count} ${count === 1 ? 'lesson' : 'lessons'}`;
+
 export function entryHref(e: Entry): string {
   return `/e/${e.id}`;
 }

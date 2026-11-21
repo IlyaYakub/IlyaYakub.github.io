@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import CollectionCard from '../../components/CollectionCard.astro';
+import { getEntries, entryHref, projectSections, sectionLessons, projectLessons, lessonsLabel, type Entry } from '../../lib/entries';
+
+// A project page lists its sections; each section opens its lessons.
+export async function getStaticPaths() {
+  const all = await getEntries();
+  return all
+    .filter((e) => e.data.type === 'project')
+    .map((project) => ({ params: { project: project.id }, props: { project, all } }));
+}
+
+const { project, all } = Astro.props as { project: Entry; all: Entry[] };
+const { title, description, cover, repo } = project.data;
+const sections = projectSections(all, project);
+---
+
+<Base title={title} description={description}>
+  <section class="head">
+    {cover && <img src={cover} alt="" class="cover" />}
+    <div class="info">
+      <div class="meta mono">
+        <span class="badge">project</span>
+        <span class="muted">
+          {sections.length} {sections.length === 1 ? 'section' : 'sections'} · {lessonsLabel(projectLessons(all, project).length)}
+        </span>
+      </div>
+      <h1 class="title">{title}</h1>
+      {description && <p class="muted">{description}</p>}
+      <div class="links mono">
+        <a href={entryHref(project)} class="arrow-link">Read the intro →</a>
+        {repo && <a href={repo} class="arrow-link" rel="noopener">Repo ↗</a>}
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Sections</h2>
+  <div class="collections">
+    {
+      sections.map((section) => (
+        <CollectionCard
+          entry={section}
+          href={`/topic/${section.data.topic}`}
+          count={lessonsLabel(sectionLessons(all, section).length)}
+          linkLabel="Open section"
+        />
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .title {
+    margin: 16px 0 12px;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .info p {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 800px) {
+    .head {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

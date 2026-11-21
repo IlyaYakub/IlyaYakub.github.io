@@ -1,31 +1,33 @@
 ---
 import type { Entry } from '../lib/entries';
 
+// A card that opens a collection: a project (its sections) or a section (its lessons).
 interface Props {
-  section: Entry;
-  entries: Entry[];
+  entry: Entry;
+  href: string;
+  count: string;
+  linkLabel: string;
 }
 
-const { section, entries } = Astro.props;
-const { title, description, cover, topic } = section.data;
-const href = `/topic/${topic}`;
+const { entry, href, count, linkLabel } = Astro.props;
+const { type, title, description, cover } = entry.data;
 ---
 
-<a href={href} class="section">
+<a href={href} class="collection">
   {cover && <img src={cover} alt="" class="cover" />}
   <div class="body">
     <div class="meta mono">
-      <span class="badge">section</span>
-      <span class="muted">{entries.length} {entries.length === 1 ? 'page' : 'pages'}</span>
+      <span class="badge">{type}</span>
+      <span class="muted">{count}</span>
     </div>
     <h3 class="title">{title}</h3>
     {description && <p class="desc muted">{description}</p>}
-    <span class="arrow-link">Open section →</span>
+    <span class="arrow-link">{linkLabel} →</span>
   </div>
 </a>
 
 <style>
-  .section {
+  .collection {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border);
@@ -34,7 +36,7 @@ const href = `/topic/${topic}`;
     transition: border-color 0.15s;
   }
 
-  .section:hover {
+  .collection:hover {
     border-color: var(--accent);
   }
 

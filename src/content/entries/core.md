@@ -1,11 +1,12 @@
 ---
-title: "Core"
+title: "Nexora Core"
 type: section
+project: nexora
 topic: core
 date: 2026-11-21T09:00:00
 tags: [cpp, nexora]
 repo: https://github.com/IlyaYakub/Nexora
-cover: /images/core-section-chip.svg
+cover: /images/core-section-ai.webp
 description: "Пять маленьких частей, на которых стоит движок Nexora: файлы, время, лог, окна и события."
 ---
 

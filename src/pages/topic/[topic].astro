@@ -1,16 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getEntries, getTopics, entryHref, entryTitle, type Entry } from '../../lib/entries';
+import { getEntries, getTopics, entryHref, entryTitle, lessonsLabel, type Entry } from '../../lib/entries';
 
-// A topic page is a section: its intro on top, its pages below, oldest first.
+// A topic page is a section: its intro on top, its lessons below, oldest first.
 export async function getStaticPaths() {
   const all = await getEntries();
   return getTopics(all).map((topic) => {
     const entries = all.filter((e) => e.data.topic === topic).reverse();
+    const section = entries.find((e) => e.data.type === 'section');
     return {
       params: { topic },
       props: {
-        section: entries.find((e) => e.data.type === 'section'),
+        section,
+        project: all.find((e) => e.id === section?.data.project),
         entries: entries.filter((e) => e.data.type !== 'section'),
       },
     };
@@ -18,7 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { topic } = Astro.params;
-const { section, entries } = Astro.props as { section?: Entry; entries: Entry[] };
+const { section, project, entries } = Astro.props as { section?: Entry; project?: Entry; entries: Entry[] };
 
 const items = entries.map((entry, index) => ({
   href: entryHref(entry),
@@ -31,12 +33,13 @@ const items = entries.map((entry, index) => ({
 ---
 
 <Base title={section?.data.title ?? topic} description={section?.data.description}>
+  {project && <a href={`/project/${project.id}`} class="arrow-link back">← {project.data.title}</a>}
   <section class="head">
     {section?.data.cover && <img src={section.data.cover} alt="" class="cover" />}
     <div class="info">
       <div class="meta mono">
         <span class="badge">section</span>
-        <span class="muted">{entries.length} {entries.length === 1 ? 'page' : 'pages'}</span>
+        <span class="muted">{lessonsLabel(entries.length)}</span>
       </div>
       <h1 class="title">{section?.data.title ?? topic}</h1>
       {section?.data.description && <p class="muted">{section.data.description}</p>}
@@ -67,6 +70,11 @@ const items = entries.map((entry, index) => ({
 </Base>
 
 <style>
+  .back {
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
   .head {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -170,7 +178,12 @@ const items = entries.map((entry, index) => ({
   }
 
   @media (max-width: 800px) {
-    .head {
+    .back {
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .head {
       grid-template-columns: 1fr;
     }
 
