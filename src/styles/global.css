@@ -11,9 +11,23 @@
   --accent: #f04e0f;
   --font: 'Inter Tight Variable', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --highlight: #222;
+  --details-open: #444;
   --wrap: 1200px;
   --gutter: 20px;
   color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --surface: #f5f5f4;
+  --border: #dcdcda;
+  --text: #141414;
+  --muted: #6b6b6b;
+  --accent: #d9430b;
+  --highlight: #ebebe9;
+  --details-open: #b5b5b2;
+  color-scheme: light;
 }
 
 *,
@@ -143,6 +157,19 @@ a.badge:hover,
   border: 1px solid var(--border);
 }
 
+/* Shiki renders both themes; the active one is picked by data-theme. */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+[data-theme='light'] .astro-code,
+[data-theme='light'] .astro-code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
 .prose pre {
   padding: 16px;
   overflow-x: auto;
@@ -185,7 +212,7 @@ a.badge:hover,
 }
 
 .prose details[open] {
-  border-color: #444;
+  border-color: var(--details-open);
 }
 
 .prose summary {

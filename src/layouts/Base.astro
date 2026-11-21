@@ -5,9 +5,10 @@ import { SITE } from '../consts';
 interface Props {
   title?: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, lang = 'en' } = Astro.props;
 const fullTitle = title ? `${title} — ${SITE.name}` : SITE.name;
 const path = Astro.url.pathname;
 const nav = [
@@ -16,7 +17,7 @@ const nav = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +25,14 @@ const nav = [
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    <script is:inline>
+      // Saved choice first, then the system preference; set before paint so there is no flash.
+      let theme = null;
+      try {
+        theme = localStorage.getItem('theme');
+      } catch {}
+      document.documentElement.dataset.theme = theme ?? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    </script>
   </head>
   <body>
     <header class="header">
@@ -38,6 +47,10 @@ const nav = [
             ))
           }
           <a href="/rss.xml" class="rss">RSS</a>
+          <button type="button" class="theme-toggle" aria-label="Toggle light and dark theme">
+            <svg viewBox="0 0 24 24" class="sun" aria-hidden="true"><circle cx="12" cy="12" r="4.5" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" /></svg>
+            <svg viewBox="0 0 24 24" class="moon" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>
+          </button>
         </nav>
       </div>
     </header>
@@ -54,6 +67,15 @@ const nav = [
         </span>
       </div>
     </footer>
+    <script is:inline>
+      document.querySelector('.theme-toggle').addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        try {
+          localStorage.setItem('theme', theme);
+        } catch {}
+      });
+    </script>
   </body>
 </html>
 
@@ -115,8 +137,44 @@ const nav = [
     color: var(--text);
   }
 
+  .nav {
+    align-items: center;
+  }
+
   .nav .rss {
     color: var(--accent);
+  }
+
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  :global([data-theme='light']) .sun,
+  :global([data-theme='dark']) .moon {
+    display: none;
   }
 
   .main {
