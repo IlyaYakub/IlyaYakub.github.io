@@ -4,5 +4,5 @@ export const SITE = {
   socials: [{ label: 'GitHub', href: 'https://github.com/IlyaYakub' }],
 };
 
-export const TYPES = ['note', 'post', 'project', 'link'] as const;
+export const TYPES = ['section', 'note', 'post', 'project', 'link'] as const;
 export type EntryType = (typeof TYPES)[number];

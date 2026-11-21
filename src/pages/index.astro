@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import PlaylistCard from '../components/PlaylistCard.astro';
+import SectionCard from '../components/SectionCard.astro';
 import { getEntries } from '../lib/entries';
 import { SITE } from '../consts';
 
-// Every project is a playlist: its notes are reached only through it.
+// Every section groups its pages: they are reached only through it.
 const all = await getEntries();
-const projects = all.filter((e) => e.data.type === 'project');
+const sections = all.filter((e) => e.data.type === 'section');
 ---
 
 <Base>
@@ -26,9 +26,9 @@ const projects = all.filter((e) => e.data.type === 'project');
   </section>
 
   <section>
-    <h2 class="section-title">Playlists</h2>
-    <div class="playlists">
-      {projects.map((project) => <PlaylistCard project={project} entries={all.filter((e) => e.data.topic === project.data.topic && e.id !== project.id)} />)}
+    <h2 class="section-title">Sections</h2>
+    <div class="sections">
+      {sections.map((section) => <SectionCard section={section} entries={all.filter((e) => e.data.topic === section.data.topic && e.id !== section.id)} />)}
     </div>
   </section>
 </Base>
@@ -86,7 +86,7 @@ const projects = all.filter((e) => e.data.type === 'project');
     text-decoration: underline;
   }
 
-  .playlists {
+  .sections {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
     gap: 16px;

@@ -2,30 +2,30 @@
 import type { Entry } from '../lib/entries';
 
 interface Props {
-  project: Entry;
+  section: Entry;
   entries: Entry[];
 }
 
-const { project, entries } = Astro.props;
-const { title, description, cover, topic } = project.data;
+const { section, entries } = Astro.props;
+const { title, description, cover, topic } = section.data;
 const href = `/topic/${topic}`;
 ---
 
-<a href={href} class="playlist">
+<a href={href} class="section">
   {cover && <img src={cover} alt="" class="cover" />}
   <div class="body">
     <div class="meta mono">
-      <span class="badge">project</span>
-      <span class="muted">{entries.length} {entries.length === 1 ? 'entry' : 'entries'}</span>
+      <span class="badge">section</span>
+      <span class="muted">{entries.length} {entries.length === 1 ? 'page' : 'pages'}</span>
     </div>
     <h3 class="title">{title}</h3>
     {description && <p class="desc muted">{description}</p>}
-    <span class="arrow-link">Open playlist →</span>
+    <span class="arrow-link">Open section →</span>
   </div>
 </a>
 
 <style>
-  .playlist {
+  .section {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border);
@@ -34,7 +34,7 @@ const href = `/topic/${topic}`;
     transition: border-color 0.15s;
   }
 
-  .playlist:hover {
+  .section:hover {
     border-color: var(--accent);
   }
 

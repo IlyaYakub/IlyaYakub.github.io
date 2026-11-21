@@ -10,19 +10,16 @@ interface Props {
 
 const { topic, entries, currentId } = Astro.props;
 
-// "Nexora #3: Event and tests" -> number "3", name "Event and tests"
-const items = entries.map((entry, index) => {
-  const title = entryTitle(entry);
-  const match = title.match(/#(\d+):\s*(.+)$/);
-  return {
-    href: entryHref(entry),
-    number: entry.data.type === 'project' ? '0' : match ? match[1] : String(index + 1),
-    name: match ? match[2] : title,
-    isCurrent: entry.id === currentId,
-  };
-});
+// The section intro is #00, its pages follow from #01.
+const offset = entries[0]?.data.type === 'section' ? 0 : 1;
+const items = entries.map((entry, index) => ({
+  href: entryHref(entry),
+  number: String(index + offset),
+  name: entryTitle(entry),
+  isCurrent: entry.id === currentId,
+}));
 
-// "18 notes · 1 project": count each type, so a note is never called a post
+// "5 notes · 1 section": count each type, so a note is never called a post
 const counts = TYPES.map((type) => ({ type, count: entries.filter((e) => e.data.type === type).length }))
   .filter(({ count }) => count > 0)
   .map(({ type, count }) => `${count} ${type}${count === 1 ? '' : 's'}`)
@@ -92,7 +89,7 @@ const counts = TYPES.map((type) => ({ type, count: entries.filter((e) => e.data.
 
   li a.current {
     border-left-color: var(--accent);
-    background: #222;
+    background: var(--highlight);
     color: var(--text);
   }
 
