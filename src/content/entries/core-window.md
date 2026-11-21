@@ -4,7 +4,7 @@ type: note
 topic: core
 date: 2026-11-21T13:00:00
 tags: [cpp, nexora, glfw]
-cover: /images/core-window-ai.webp
+cover: /images/core-window-ai2.webp
 description: "Открыть окно, держать его живым и превратить нажатие клавиши в событие движка. GLFW спрятан за интерфейсами."
 ---
 

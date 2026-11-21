@@ -4,7 +4,7 @@ type: project
 date: 2026-11-21T08:00:00
 tags: [cpp, nexora]
 repo: https://github.com/IlyaYakub/Nexora
-cover: /images/nexora-engine-ai.webp
+cover: /images/nexora-engine-ai2.webp
 description: "Игровой движок на C++23 с нуля, разобранный по частям. Каждый урок — одна часть движка на одном простом примере."
 ---
 

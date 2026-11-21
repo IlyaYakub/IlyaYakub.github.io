@@ -4,7 +4,7 @@ type: note
 topic: core
 date: 2026-11-21T11:00:00
 tags: [cpp, nexora, chrono]
-cover: /images/core-timer-ai.webp
+cover: /images/core-timer-ai2.webp
 description: "Сколько длился кадр и сколько прошло с запуска: steady_clock, deltaSeconds и totalSeconds."
 ---
 

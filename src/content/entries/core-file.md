@@ -4,7 +4,7 @@ type: note
 topic: core
 date: 2026-11-21T10:00:00
 tags: [cpp, nexora, std-expected]
-cover: /images/core-file-ai.webp
+cover: /images/core-file-ai2.webp
 description: "Прочитать файл одной строкой и честно узнать, если его нет: std::expected и итераторы потока."
 ---
 
