@@ -5,14 +5,14 @@ topic: core
 date: 2026-11-21T10:00:00
 tags: [cpp, nexora, std-expected]
 cover: /images/core-file-ai2.webp
-description: "Прочитать файл одной строкой и честно узнать, если его нет: std::expected и итераторы потока."
+description: "Read a file in one line and know for sure when it isn't there: std::expected and stream iterators."
 ---
 
-`File` — это четыре функции: прочитать или записать текст, прочитать или записать байты.
+`File` is four functions: read or write text, read or write bytes.
 
-## Пример
+## Example
 
-Компилятор шейдеров читает исходник шейдера:
+The shader compiler reads a shader's source:
 
 ```cpp
 const auto source = File::readText("Shaders/Triangle.slang");
@@ -24,18 +24,18 @@ if (!source)
 compile(*source);
 ```
 
-`readText` возвращает не строку, а **«строку или ошибку»**:
+`readText` doesn't return a string. It returns **"a string or an error"**:
 
 ```cpp
 std::expected<std::string, FileError> readText(const std::filesystem::path& path);
 ```
 
-- Файл открылся — внутри лежит текст, достаём его через `*source`.
-- Не открылся — внутри `FileError::OpenFailed`, и `if (!source)` это ловит.
+- The file opened: the text is inside, you get it with `*source`.
+- It didn't: inside is `FileError::OpenFailed`, and `if (!source)` catches it.
 
-Почему не `Fatal`? Пропавший шейдер — не конец света: вызывающий код сам решит, что делать. Поэтому `File` только пишет `Error` в лог и возвращает ошибку.
+Why not `Fatal`? A missing shader isn't the end of the world: the caller decides what to do. So `File` only logs an `Error` and returns the error.
 
-## Как читается файл
+## How a file is read
 
 ```cpp
 std::ifstream stream(path, std::ios::binary);
@@ -48,13 +48,13 @@ if (!stream.is_open())
 return std::string(std::istreambuf_iterator<char>(stream), std::istreambuf_iterator<char>());
 ```
 
-`istreambuf_iterator` — итератор, который на каждом шаге берёт из файла следующий байт. Пустой итератор означает «конец файла». Строка строится из диапазона «от начала до конца», то есть из всего файла.
+`istreambuf_iterator` is an iterator that takes the next byte from the file on every step. An empty iterator means "end of file". The string is built from the range "from the start to the end", which is the whole file.
 
-`std::ios::binary` нужен, чтобы Windows не превращала `\r\n` в `\n`: что лежит в файле, то и прочитали.
+`std::ios::binary` stops Windows from turning `\r\n` into `\n`: what's in the file is what you read.
 
-## Текст и байты — один код
+## Text and bytes share one code path
 
-Для текста нужен `std::string`, для байтов — `std::vector<uint8>`. Код чтения у них одинаковый, поэтому он один, шаблонный:
+Text needs a `std::string`, bytes need a `std::vector<uint8>`. The reading code is the same for both, so there is just one, a template:
 
 ```cpp
 template <typename Container>
@@ -64,4 +64,4 @@ readFile<std::string>(path);         // readText
 readFile<std::vector<uint8>>(path);  // readBinary
 ```
 
-Запись — зеркально: `std::ofstream`, а байты копируются в файл через `std::ranges::copy` в `ostreambuf_iterator`.
+Writing mirrors it: `std::ofstream`, and the bytes are copied into the file with `std::ranges::copy` into an `ostreambuf_iterator`.

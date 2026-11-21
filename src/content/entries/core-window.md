@@ -5,14 +5,14 @@ topic: core
 date: 2026-11-21T13:00:00
 tags: [cpp, nexora, glfw]
 cover: /images/core-window-ai2.webp
-description: "Открыть окно, держать его живым и превратить нажатие клавиши в событие движка. GLFW спрятан за интерфейсами."
+description: "Open a window, keep it alive and turn a key press into an engine event. GLFW is hidden behind interfaces."
 ---
 
-Движок знает только два интерфейса: `IWindow` (одно окно) и `IWindowManager` (все окна). За ними — GLFW, в классах `GLFWWindow` и `GLFWWindowManager`.
+The engine knows only two interfaces: `IWindow` (one window) and `IWindowManager` (all windows). GLFW sits behind them, in the `GLFWWindow` and `GLFWWindowManager` classes.
 
-## Пример
+## Example
 
-Так `Engine` открывает главное окно и крутит цикл:
+This is how `Engine` opens the main window and runs the loop:
 
 ```cpp
 const WindowSettings settings{
@@ -28,21 +28,21 @@ while (!m_windowManager->areAllWindowsClosed())
 }
 ```
 
-Нажали крестик — окно закрылось — цикл закончился.
+Click the close button, the window closes, the loop ends.
 
 ## createWindow
 
-Менеджер хранит окна в словаре «номер → окно»:
+The manager keeps its windows in a "number → window" map:
 
 ```cpp
 std::unordered_map<WindowId, std::shared_ptr<IWindow>> m_windows;
 ```
 
-`createWindow` берёт следующий номер, создаёт `GLFWWindow`, кладёт его в словарь и сообщает всем через `windowCreatedEvent`, что появилось новое окно. Наружу отдаётся только номер — `WindowId`. Само окно можно попросить по номеру: `getWindowById(id)`.
+`createWindow` takes the next number, creates a `GLFWWindow`, puts it in the map and tells everyone through `windowCreatedEvent` that a new window exists. Only the number, a `WindowId`, is handed out. The window itself can be asked for by number: `getWindowById(id)`.
 
 ## update
 
-Один вызов в кадр, три шага:
+One call per frame, three steps:
 
 ```cpp
 void GLFWWindowManager::update()
@@ -53,13 +53,13 @@ void GLFWWindowManager::update()
 }
 ```
 
-1. Забрать у системы всё, что случилось: клавиши, мышь, крестик.
-2. Выкинуть закрытые окна. Когда словарь опустеет, `areAllWindowsClosed()` вернёт `true`.
-3. Если все окна свёрнуты — спать в `glfwWaitEvents()`, пока что-нибудь не произойдёт. Свёрнутый движок не грузит процессор.
+1. Take everything that happened from the system: keys, mouse, the close button.
+2. Drop the closed windows. Once the map is empty, `areAllWindowsClosed()` returns `true`.
+3. If every window is minimized, sleep in `glfwWaitEvents()` until something happens. A minimized engine doesn't load the CPU.
 
-## Нажатие клавиши
+## A key press
 
-Нажали `W`. GLFW вызывает нашу лямбду, и она делает из этого событие движка:
+You press `W`. GLFW calls our lambda, and it turns that into an engine event:
 
 ```cpp
 glfwSetKeyCallback(m_window, [](GLFWwindow* window, int32 key, int32, int32 action, int32)
@@ -70,8 +70,8 @@ glfwSetKeyCallback(m_window, [](GLFWwindow* window, int32 key, int32, int32 acti
 });
 ```
 
-- GLFW вызывает простую функцию и не знает про наш объект. Поэтому при создании окна мы кладём в GLFW указатель `this` (`glfwSetWindowUserPointer`), а в лямбде достаём его обратно.
-- `GLFWKeyMapper` переводит `GLFW_KEY_W` в наш `Key::W`. Дальше движок видит только свои типы.
-- `m_windowEvent.invoke(...)` раздаёт событие всем, кто подписан на это окно. Как работают события — на странице [Event](/e/core-event).
+- GLFW calls a plain function and knows nothing about our object. So when the window is created, we give GLFW the `this` pointer (`glfwSetWindowUserPointer`) and take it back in the lambda.
+- `GLFWKeyMapper` turns `GLFW_KEY_W` into our `Key::W`. From here on the engine sees only its own types.
+- `m_windowEvent.invoke(...)` hands the event to everyone subscribed to this window. How events work is on the [Event](/e/core-event) page.
 
-Мышь, колёсико, изменение размера и закрытие окна устроены точно так же.
+Mouse, scroll wheel, resizing and closing the window work exactly the same way.

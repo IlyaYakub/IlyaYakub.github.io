@@ -5,12 +5,12 @@ topic: core
 date: 2026-11-21T14:00:00
 tags: [cpp, nexora, delegates]
 cover: /images/core-event-ai2.webp
-description: "Список слушателей: add, invoke, remove. Так модули движка общаются, не зная друг о друге."
+description: "A list of listeners: add, invoke, remove. That's how engine modules talk without knowing about each other."
 ---
 
-Событие — это **список слушателей**. Кто угодно может подписаться. Когда что-то случилось, `invoke` вызывает всех по очереди. Это упрощённый multicast delegate из Unreal.
+An event is a **list of listeners**. Anyone can subscribe. When something happens, `invoke` calls them all in turn. It's Unreal's multicast delegate, simplified.
 
-## Пример
+## Example
 
 ```cpp
 Event<int32> scoreChanged;
@@ -22,11 +22,11 @@ scoreChanged.remove(handle);
 scoreChanged.invoke(20);
 ```
 
-В логе будет одна строка — `Score: 10`. Перед вторым `invoke` слушатель отписался, и `20` никто не услышал.
+The log gets one line, `Score: 10`. The listener unsubscribed before the second `invoke`, so nobody heard `20`.
 
-## Как устроен
+## How it works
 
-Внутри — вектор пар «номер + функция»:
+Inside is a vector of "number + function" pairs:
 
 ```cpp
 struct Entry
@@ -38,27 +38,27 @@ struct Entry
 std::vector<Entry> m_listeners;
 ```
 
-- `add` кладёт функцию в конец и возвращает её номер — `EventHandle`. Номера идут с 1, а 0 значит «пустой».
-- `remove(handle)` удаляет запись с этим номером.
-- `invoke(args...)` проходит по вектору и вызывает каждую функцию с этими аргументами.
+- `add` puts the function at the end and returns its number, an `EventHandle`. Numbers start at 1; 0 means "empty".
+- `remove(handle)` deletes the entry with that number.
+- `invoke(args...)` walks the vector and calls every function with those arguments.
 
-Типы аргументов задаются шаблоном: `Event<int32>`, `Event<WindowId>`, `Event<const InputEvent&>`.
+The argument types come from the template: `Event<int32>`, `Event<WindowId>`, `Event<const InputEvent&>`.
 
-Подписать можно не только лямбду, но и метод объекта:
+You can subscribe an object's method, not just a lambda:
 
 ```cpp
 windowCreatedEvent.add(this, &Renderer::onWindowCreated);
 ```
 
-Внутри это та же лямбда: `[object, method](Args... args) { (object->*method)(args...); }`.
+Inside, it's the same lambda: `[object, method](Args... args) { (object->*method)(args...); }`.
 
-## Зачем
+## Why
 
-Модули не знают друг о друге. Менеджер окон не знает, что существует рендерер. Он просто вызывает `windowCreatedEvent.invoke(id)`, а рендерер, который подписался, создаёт для нового окна место, куда рисовать.
+Modules don't know about each other. The window manager doesn't know the renderer exists. It just calls `windowCreatedEvent.invoke(id)`, and the renderer, which subscribed, creates a place to draw into for the new window.
 
-## Ввод — одно событие
+## Input is one event
 
-У окна одно событие на весь ввод — `Event<const InputEvent&>`. Что именно случилось, лежит в `std::variant`:
+A window has one event for all input, `Event<const InputEvent&>`. What exactly happened is in a `std::variant`:
 
 ```cpp
 struct InputEvent
@@ -68,7 +68,7 @@ struct InputEvent
 };
 ```
 
-Слушатель разбирает вариант через `std::visit`. Рендерер, например, ловит только изменение размера и закрытие окна:
+A listener unpacks the variant with `std::visit`. The renderer, for example, only catches resizing and closing:
 
 ```cpp
 std::visit(Overloaded{
@@ -78,4 +78,4 @@ std::visit(Overloaded{
 }, event.data);
 ```
 
-Новый тип ввода — это новая структура в варианте, а не новое событие и новая подписка.
+A new kind of input is a new struct in the variant, not a new event and a new subscription.

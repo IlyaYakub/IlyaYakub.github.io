@@ -5,14 +5,14 @@ topic: core
 date: 2026-11-21T12:00:00
 tags: [cpp, nexora, spdlog]
 cover: /images/core-log-ai2.webp
-description: "Одна строка NX_LOG — и сообщение с категорией, важностью, файлом и строкой уже в консоли и в файле."
+description: "One NX_LOG line, and the message with its category, verbosity, file and line is in the console and in a file."
 ---
 
-Лог — как `UE_LOG` в Unreal: у каждого сообщения есть **категория** (какой модуль) и **важность**.
+The log works like `UE_LOG` in Unreal: every message has a **category** (which module) and a **verbosity** (how important).
 
-## Пример
+## Example
 
-`File` не смог открыть файл:
+`File` failed to open a file:
 
 ```cpp
 DEFINE_LOG_CATEGORY_STATIC(LogFile);
@@ -20,47 +20,47 @@ DEFINE_LOG_CATEGORY_STATIC(LogFile);
 NX_LOG(LogFile, Error, "Failed to open {} for reading", path.string());
 ```
 
-В консоли:
+In the console:
 
 ```text
 [14:02:07.315] LogFile: Error: Failed to open a.txt for reading (File.cpp:16)
 ```
 
-Время, категория, важность, текст и — раз это ошибка — файл и строка, откуда её написали.
+Time, category, verbosity, text and, since it's an error, the file and line it came from.
 
-## Важность
+## Verbosity
 
-| Важность | Когда | Файл и строка |
+| Verbosity | When | File and line |
 | --- | --- | --- |
-| `Fatal` | Движок не может продолжать: пишет и останавливает программу | да |
-| `Error` | Что-то сломалось, но движок работает дальше | да |
-| `Warning` | Выглядит странно, стоит глянуть | да |
-| `Display` | Обычная информация | нет |
-| `Log` | Подробности, например от валидации Vulkan | нет |
+| `Fatal` | The engine can't go on: logs and stops the program | yes |
+| `Error` | Something broke, but the engine keeps running | yes |
+| `Warning` | Looks wrong, worth a look | yes |
+| `Display` | Normal information | no |
+| `Log` | Details, e.g. from Vulkan validation | no |
 
-## Что делает NX_LOG
+## What NX_LOG does
 
-`NX_LOG` — макрос. Он делает три шага:
+`NX_LOG` is a macro. It takes three steps:
 
-1. Проверяет при компиляции, что `LogFile` — настоящая категория. Опечатка не скомпилируется.
-2. Отбрасывает слишком подробные сообщения ещё при компиляции (`if constexpr`) — они не стоят ничего.
-3. Собирает текст через `std::format` и добавляет `std::source_location` — это и есть файл и строка.
+1. Checks at compile time that `LogFile` is a real category. A typo won't compile.
+2. Drops messages that are too detailed at compile time (`if constexpr`), so they cost nothing.
+3. Builds the text with `std::format` and adds `std::source_location`, which is where the file and line come from.
 
-Дальше `Log::log` склеивает строку и отдаёт её spdlog. Сообщение идёт в два места:
+Then `Log::log` puts the line together and hands it to spdlog. The message goes to two places:
 
-- в консоль — от `Display` и важнее;
-- в файл `Saved/Logs/Nexora-2026.11.21-14.02.07.log` — всё подряд.
+- the console, from `Display` up;
+- the file `Saved/Logs/Nexora-2026.11.21-14.02.07.log`, everything.
 
 ## Fatal
 
-В движке нет исключений. Если продолжать нельзя (например, окно не создалось), пишется `Fatal`:
+The engine has no exceptions. When it can't go on (say, the window wasn't created), it logs `Fatal`:
 
 ```cpp
 NX_LOG(LogWindow, Fatal, "Failed to create window");
 ```
 
-Лог сохраняется, отладчик останавливается на этой строке, программа завершается. Понятное сообщение вместо падения непонятно где.
+The log is flushed, the debugger stops on this line, and the program exits. A clear message instead of a crash somewhere unclear.
 
-## Где прячется spdlog
+## Where spdlog hides
 
-spdlog подключён только в `Log.cpp`, внутри класса `Log::Impl`. Заголовок `Log.h` про него не знает, поэтому остальной движок не тянет за собой чужую библиотеку.
+spdlog is included only in `Log.cpp`, inside the `Log::Impl` class. The `Log.h` header doesn't know about it, so the rest of the engine doesn't drag a third-party library along.

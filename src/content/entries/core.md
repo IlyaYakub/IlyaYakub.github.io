@@ -7,12 +7,12 @@ date: 2026-11-21T09:00:00
 tags: [cpp, nexora]
 repo: https://github.com/IlyaYakub/Nexora
 cover: /images/core-section-ai2.webp
-description: "Пять маленьких частей, на которых стоит движок Nexora: файлы, время, лог, окна и события."
+description: "Five small parts the Nexora engine stands on: files, time, logging, windows and events."
 ---
 
-**Nexora** — игровой движок на C++23, который я пишу с нуля. Прежде чем что-то рисовать, движку нужны пять простых вещей. Это и есть **Core**.
+Before the engine can draw anything, it needs five simple things. That's **Core**.
 
-Весь движок крутится в одном цикле:
+The whole engine runs in one loop:
 
 ```cpp
 while (!m_windowManager->areAllWindowsClosed())
@@ -24,14 +24,14 @@ while (!m_windowManager->areAllWindowsClosed())
 }
 ```
 
-Пока открыто хоть одно окно: засечь время кадра, обновить окна (клавиатура, мышь), нарисовать кадр. И так по кругу.
+While at least one window is open: measure the frame time, update the windows (keyboard, mouse), draw a frame. Over and over.
 
-| Часть | Что делает | Одной строкой |
+| Part | What it does | In one line |
 | --- | --- | --- |
-| [File](/e/core-file) | Читает и пишет файлы | `File::readText("a.txt")` |
-| [Timer](/e/core-timer) | Считает, сколько прошло времени | `timer.deltaSeconds()` |
-| [Log](/e/core-log) | Пишет сообщения в консоль и в файл | `NX_LOG(LogFile, Error, "...")` |
-| [Window](/e/core-window) | Создаёт окна и ловит ввод | `windowManager.createWindow(settings)` |
-| [Event](/e/core-event) | Сообщает всем подписчикам, что что-то случилось | `event.invoke(id)` |
+| [File](/e/core-file) | Reads and writes files | `File::readText("a.txt")` |
+| [Timer](/e/core-timer) | Measures how much time has passed | `timer.deltaSeconds()` |
+| [Log](/e/core-log) | Prints messages to the console and to a file | `NX_LOG(LogFile, Error, "...")` |
+| [Window](/e/core-window) | Creates windows and catches input | `windowManager.createWindow(settings)` |
+| [Event](/e/core-event) | Tells every subscriber that something happened | `event.invoke(id)` |
 
-Каждая страница разбирает одну часть на одном коротком примере.
+Each lesson takes one part apart on one short example.

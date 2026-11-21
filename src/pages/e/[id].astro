@@ -19,7 +19,7 @@ const { type, date, tags, url, repo, title, description, cover, topic } = entry.
 const { Content } = await render(entry);
 ---
 
-<Base title={entryTitle(entry)} description={description} lang="ru">
+<Base title={entryTitle(entry)} description={description}>
   <div class="layout">
   <article class="entry">
     <div class="meta mono">

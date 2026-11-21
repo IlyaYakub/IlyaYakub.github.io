@@ -5,14 +5,14 @@ topic: core
 date: 2026-11-21T11:00:00
 tags: [cpp, nexora, chrono]
 cover: /images/core-timer-ai2.webp
-description: "Сколько длился кадр и сколько прошло с запуска: steady_clock, deltaSeconds и totalSeconds."
+description: "How long the last frame took and how long since start: steady_clock, deltaSeconds and totalSeconds."
 ---
 
-`Timer` отвечает на два вопроса: **сколько длился прошлый кадр** и **сколько прошло с запуска**.
+`Timer` answers two questions: **how long the last frame took** and **how long since the start**.
 
-## Пример
+## Example
 
-Кубик должен лететь со скоростью 5 метров в секунду — на любом компьютере:
+A cube should fly at 5 meters per second, on any computer:
 
 ```cpp
 Timer timer;
@@ -24,14 +24,14 @@ while (isRunning)
 }
 ```
 
-- 60 кадров в секунду: кадр длится ≈ 0.0167 с, кубик сдвигается на 0.083 м за кадр.
-- 30 кадров в секунду: кадр ≈ 0.033 с, сдвиг 0.167 м за кадр.
+- At 60 frames per second a frame takes ≈ 0.0167 s, and the cube moves 0.083 m per frame.
+- At 30 frames per second a frame takes ≈ 0.033 s, and it moves 0.167 m per frame.
 
-За секунду кубик в обоих случаях пролетает ровно 5 метров. Без `deltaSeconds` быстрый компьютер двигал бы его вдвое быстрее.
+Either way the cube covers exactly 5 meters per second. Without `deltaSeconds` a fast computer would move it twice as fast.
 
-## Как устроен
+## How it works
 
-Таймер помнит два момента: старт и прошлый `tick()`.
+The timer remembers two moments: the start and the last `tick()`.
 
 ```cpp
 void Timer::tick()
@@ -43,15 +43,15 @@ void Timer::tick()
 }
 ```
 
-- `deltaSeconds` — от прошлого `tick()` до этого.
-- `totalSeconds` — от создания таймера до этого `tick()`.
-- `duration<float>` переводит разницу во времени в секунды-дроби: `0.0167`.
+- `deltaSeconds` is from the previous `tick()` to this one.
+- `totalSeconds` is from the timer's creation to this `tick()`.
+- `duration<float>` turns a time difference into fractional seconds: `0.0167`.
 
-`steady_clock` — часы, которые идут только вперёд. Если перевести системное время, обычные часы прыгнут, а `steady_clock` — нет, и кадр не получит отрицательную длину.
+`steady_clock` is a clock that only goes forward. If someone changes the system time, a regular clock jumps, `steady_clock` doesn't, so a frame never gets a negative length.
 
-## Где используется
+## Where it's used
 
-`Engine` вызывает `tick()` в начале каждого кадра. `FrameStatistics` раз в секунду берёт `totalSeconds`, считает кадры и пишет их в заголовок окна:
+`Engine` calls `tick()` at the start of every frame. Once a second `FrameStatistics` takes `totalSeconds`, counts the frames and writes them into the window title:
 
 ```text
 Nexora 0.1.0 | 60 FPS | 16.67 ms
