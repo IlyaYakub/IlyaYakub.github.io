@@ -4,7 +4,7 @@ type: note
 topic: core
 date: 2026-11-21T14:00:00
 tags: [cpp, nexora, delegates]
-cover: /images/core-event-bell.svg
+cover: /images/core-event-ai.webp
 description: "Список слушателей: add, invoke, remove. Так модули движка общаются, не зная друг о друге."
 ---
 

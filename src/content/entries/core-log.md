@@ -4,7 +4,7 @@ type: note
 topic: core
 date: 2026-11-21T12:00:00
 tags: [cpp, nexora, spdlog]
-cover: /images/core-log-terminal.svg
+cover: /images/core-log-ai.webp
 description: "Одна строка NX_LOG — и сообщение с категорией, важностью, файлом и строкой уже в консоли и в файле."
 ---
 
